@@ -31,8 +31,11 @@ public class DBManager {
             e.printStackTrace();
         } try {
             connection = DriverManager.getConnection(url, user, password);
+            System.out.println("Der er forbindelse");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            System.out.println("Der er ikke forbindelse");
+
         }
         return connection;
     }
