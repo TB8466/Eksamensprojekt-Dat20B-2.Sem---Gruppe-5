@@ -7,10 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ProjectController {
 
+    //Arrival page
     @GetMapping("/")
-    public String renderHome(){
-        return "home";
-    }
+    public String renderHome(){ return "home"; }
 
     @PostMapping("/getProjects")
     public String renderGetProjects(){ return "getProjects"; }

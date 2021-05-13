@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 public class ProjectManager {
 
+    //Creation of project
     public void createProject(Project project) throws SQLException {
         Connection connection = DBManager.getConnection();
         String query = "INSERT INTO PROJECTS (PROJECT_NAME, PROJECT_DESC) VALUES(?,?)"; //prepare query

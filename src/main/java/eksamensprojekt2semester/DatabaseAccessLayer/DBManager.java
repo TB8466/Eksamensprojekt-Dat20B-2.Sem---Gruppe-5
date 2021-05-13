@@ -17,10 +17,13 @@ public class DBManager {
 
     private static Connection connection = null;
 
+    //Primary connection method -- Establishes connection to mySQL database
     public static Connection getConnection() {
+        //Check if connection is already established
         if (connection != null) {
             return connection;
         } try (InputStream input = new FileInputStream("src/main/resources/application.properties")) {
+            //Properties object is used to get data from application.properties file
             Properties properties = new Properties();
             properties.load(input);
             url = properties.getProperty("url");
@@ -30,6 +33,7 @@ public class DBManager {
         } catch (IOException e) {
             e.printStackTrace();
         } try {
+            //Insert information from application.properties and establish connection
             connection = DriverManager.getConnection(url, user, password);
             System.out.println("Der er forbindelse");
         } catch (SQLException throwables) {
