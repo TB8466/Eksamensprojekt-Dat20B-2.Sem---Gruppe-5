@@ -3,6 +3,7 @@ package eksamensprojekt2semester.Controllers;
 import eksamensprojekt2semester.DatabaseAccessLayer.ProjectManager;
 import eksamensprojekt2semester.Model.Project;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
@@ -19,8 +20,14 @@ public class ProjectController {
         return "home";
     }
 
+
+
     @PostMapping("/getProjects")
-    public String renderGetProjects(){ return "get-projects"; }
+    public String renderGetProjects(Model model) throws SQLException {
+        model.addAttribute("projectList",projectManager.viewProjects());
+
+        return "get-projects";
+    }
 
     @PostMapping("/projectCreator")
     public String displayProjectForm(){ return "create-project"; }

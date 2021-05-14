@@ -6,6 +6,7 @@
     <form name="backToHome" action="/backToHome"  method="post">
         <input type="submit" value="BACK TO HOME">
     </form>
+    <!--
     <style>
         .grid-container {
             display: inline-grid;
@@ -22,9 +23,20 @@
             text-align: center;
         }
     </style>
+-->
 </head>
 <body>
+<div class="projectlist">
+    <h1>Current Projects :</h1>
 
+        <ul th:each="list : ${projectList}">
+            <li th:text="${list}"></li>
+        </ul>
+
+</div>
+
+
+<!--
 <h1>wtf</h1>
 <section class="project-wrapper">
 
@@ -40,8 +52,9 @@
     <div class="grid-item">Dr. Jones</div>
     <div class="grid-item">3432</div>
 </div>
-</section>
 
+</section>
+-->
 
 
 </body>
