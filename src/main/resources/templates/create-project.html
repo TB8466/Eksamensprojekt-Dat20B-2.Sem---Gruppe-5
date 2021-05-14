@@ -10,16 +10,14 @@
     <title>Title</title>
 </head>
 <body>
-
 <div class="container">
-    <form name="createproject" action="/createproject" method="POST">
+    <!-- id=projectform giver os vores form, som vi kan bruge til til vores textarea -->
+    <form name="createproject" action="/createproject" method ="POST" id="projectform">
         Name:
-        <input type="text" name="projectname" >
-        Description:
-        <input type="text" name="projectdescription">
-        <input type="submit" value="Submit">
-
+        <input type="text" name="projectname">
+        <input type="submit">
     </form>
+    <textarea name="projectdescription" form="projectform" placeholder="Enter your description"></textarea>
 </div>
 
 <!-- indsæt jonas kode her-->
