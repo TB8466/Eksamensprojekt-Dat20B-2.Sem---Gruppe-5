@@ -1,0 +1,33 @@
+DROP DATABASE IF EXISTS Alpha;
+CREATE DATABASE Alpha;
+
+USE Alpha;
+
+#Projects
+DROP TABLE IF EXISTS projects;
+CREATE TABLE projects(
+project_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+project_name VARCHAR(50) NOT NULL,
+project_desc VARCHAR(300)
+);
+
+#Tasks
+DROP TABLE IF EXISTS tasks;
+CREATE TABLE tasks(
+task_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+task_name VARCHAR(50) NOT NULL,
+task_desc VARCHAR(300),
+connected_project INT,
+FOREIGN KEY (connected_project) REFERENCES projects(project_id)
+);
+
+#Subtasks
+DROP TABLE IF EXISTS subtasks;
+CREATE TABLE subtasks(
+subtask_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+subtask_name VARCHAR(50) NOT NULL,
+subtask_desc VARCHAR(300),
+estimated_time DOUBLE NOT NULL,
+connected_task INT,
+FOREIGN KEY (connected_task) REFERENCES tasks(task_id)
+);

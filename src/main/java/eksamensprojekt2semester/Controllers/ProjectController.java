@@ -22,7 +22,7 @@ public class ProjectController {
     @PostMapping("/getProjects")
     public String renderGetProjects(){ return "get-projects"; }
 
-    @PostMapping("/project-creator")
+    @PostMapping("/projectCreator")
     public String displayProjectForm(){ return "create-project"; }
 
 
