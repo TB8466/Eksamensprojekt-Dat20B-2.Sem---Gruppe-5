@@ -20,7 +20,7 @@ public class ProjectController {
     }
 
     @PostMapping("/getProjects")
-    public String renderGetProjects(){ return "view-projects"; }
+    public String renderGetProjects(){ return "get-projects"; }
 
     @PostMapping("/project-creator")
     public String displayProjectForm(){ return "create-project"; }
