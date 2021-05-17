@@ -6,7 +6,7 @@
     <form name="backToHome" action="/backToHome"  method="post">
         <input type="submit" value="BACK TO HOME">
     </form>
-    <!--
+
     <style>
         .grid-container {
             display: inline-grid;
@@ -23,19 +23,25 @@
             text-align: center;
         }
     </style>
--->
+
 </head>
 <body>
 <div class="projectlist">
     <h1>Current Projects :</h1>
+    <div class="grid-container">
 
         <ul th:each="list : ${projectList}">
-            <ul>Project Name: </ul>
+            <div class="grid-item"> <ul>Project Name: </ul>
             <ul th:text="${list.name}"></ul>
             <br>
+                iD:
+                <ul th:text="${list.id}"></ul>
             <ul> Project Description: </ul>
             <ul th:text="${list.description}"></ul>
+                <a th:href="@{/project/{id}(id=${list.id})}">View</a>
+            </div>
         </ul>
+    </div>
 </div>
 
 

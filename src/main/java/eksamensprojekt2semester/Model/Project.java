@@ -7,6 +7,11 @@ public class Project {
     private String description;
 
     //Constructor used for building a project object
+    public Project(int id, String name, String description) {
+        this.id=id;
+        this.name = name;
+        this.description = description;
+    }
     public Project(String name, String description) {
         this.name = name;
         this.description = description;

@@ -29,7 +29,7 @@ public class ProjectManager {
     public ArrayList<Project> viewProjects() throws SQLException {
 
         Connection connection = DBManager.getConnection();
-        String query = "SELECT project_name, project_desc from projects";
+        String query = "SELECT * from projects";
         PreparedStatement ps = connection.prepareStatement(query);
 
 
@@ -38,13 +38,10 @@ public class ProjectManager {
 
         ArrayList<Project> projectList = new ArrayList<>();
         while(rs.next()){
-            Project p1 = new Project(rs.getString("project_name"),rs.getString("project_desc"));
+            Project p1 = new Project(rs.getInt("project_id"),rs.getString("project_name"),rs.getString("project_desc"));
             projectList.add(p1);
         }
         //Return the list, so it can be transferred to view
         return projectList;
     }
-
-
-
 }
