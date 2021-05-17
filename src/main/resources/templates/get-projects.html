@@ -30,9 +30,12 @@
     <h1>Current Projects :</h1>
 
         <ul th:each="list : ${projectList}">
-            <li th:text="${list}"></li>
+            <ul>Project Name: </ul>
+            <ul th:text="${list.name}"></ul>
+            <br>
+            <ul> Project Description: </ul>
+            <ul th:text="${list.description}"></ul>
         </ul>
-
 </div>
 
 
