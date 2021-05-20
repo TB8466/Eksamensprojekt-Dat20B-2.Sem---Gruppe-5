@@ -42,15 +42,16 @@ public class ProjectController {
 
     @GetMapping("/create-task/{id}")
     public String rendertaskform(@PathVariable("id")int id, Model model) {
-        model.addAttribute(id);
+        model.addAttribute("id",id);
         return "create-task";
     }
 
     @PostMapping("/addtask")
     public String createTask(WebRequest request) throws SQLException{
+
         String name = request.getParameter("taskname");
         String description = request.getParameter("taskdescription");
-        int id = request.get
+        int id = Integer.parseInt(request.getParameter("id"));
         Task task = new Task(name,description);
 
         taskManager.createTask(task,id);
