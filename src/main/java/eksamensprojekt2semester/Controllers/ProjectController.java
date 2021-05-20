@@ -1,9 +1,7 @@
 package eksamensprojekt2semester.Controllers;
 
 import eksamensprojekt2semester.DatabaseAccessLayer.ProjectManager;
-import eksamensprojekt2semester.DatabaseAccessLayer.TaskManager;
 import eksamensprojekt2semester.Model.Project;
-import eksamensprojekt2semester.Model.Task;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,54 +15,23 @@ import java.sql.SQLException;
 public class ProjectController {
 
     private ProjectManager projectManager = new ProjectManager();
-    TaskManager taskManager = new TaskManager();
 
-    //Arrival page
-    @GetMapping("/")
-    public String renderHome(){
-
-        return "home";
-    }
 
     //View all projects
     @PostMapping("/getProjects")
     public String renderGetProjects(Model model) throws SQLException {
-
         model.addAttribute("projectList",projectManager.viewProjects());
-
-        return "get-projects";
+        return "/projects/get-projects";
     }
 
    @GetMapping("/project/{id}")
     public String getSpecificProject(@PathVariable("id") int id){
-        return "project";
+        return "/projects/project";
    }
-
-    @GetMapping("/create-task/{id}")
-    public String rendertaskform(@PathVariable("id")int id, Model model) {
-        model.addAttribute("id",id);
-        return "create-task";
-    }
-
-    @PostMapping("/addtask")
-    public String createTask(WebRequest request) throws SQLException{
-
-        String name = request.getParameter("taskname");
-        String description = request.getParameter("taskdescription");
-        int id = Integer.parseInt(request.getParameter("id"));
-        Task task = new Task(name,description);
-
-        taskManager.createTask(task,id);
-
-        return "create-task";
-    }
-
-
-
 
     //Project creation page
     @PostMapping("/projectCreator")
-    public String displayProjectForm(){ return "create-project"; }
+    public String displayProjectForm(){ return "/projects/create-project"; }
 
     //Receives data from HTML form via WebRequest, saves data as a Project-object and inserts Project-object into database
     @PostMapping("/createproject")
@@ -79,7 +46,5 @@ public class ProjectController {
         return "home";
     }
 
-    // fjern hvis vi har lavet "logo back to home"
-    @PostMapping("/backToHome")
-    public String renderBackToHome(){return "Home";}
+
 }

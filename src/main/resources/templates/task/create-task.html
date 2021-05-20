@@ -15,5 +15,19 @@
     </form>
     <textarea name="taskdescription" form="taskform" placeholder="Enter your description"></textarea>
 </div>
+
+<h4>Current tasks: </h4>
+<div class ="grid-container">
+    <ul th:each="list : ${taskList}">
+        <div class="grid-item">
+            <ul th:text ="${list.name}"></ul>
+            <br>
+            iD:
+            <ul>Task description:</ul>
+            <ul th:text="${list.description}"></ul>
+
+        </div>
+    </ul>
+</div>
 </body>
 </html>
