@@ -39,6 +39,7 @@
             <ul> Project Description: </ul>
             <ul th:text="${list.description}"></ul>
                 <a th:href="@{/project/{id}(id=${list.id})}">View</a>
+                <a th:href="@{/create-task/{id}(id=${list.id})}">Edit</a>
             </div>
         </ul>
     </div>

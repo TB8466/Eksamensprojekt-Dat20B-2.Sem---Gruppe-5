@@ -1,7 +1,9 @@
 package eksamensprojekt2semester.Controllers;
 
 import eksamensprojekt2semester.DatabaseAccessLayer.ProjectManager;
+import eksamensprojekt2semester.DatabaseAccessLayer.TaskManager;
 import eksamensprojekt2semester.Model.Project;
+import eksamensprojekt2semester.Model.Task;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,7 @@ import java.sql.SQLException;
 public class ProjectController {
 
     private ProjectManager projectManager = new ProjectManager();
+    TaskManager taskManager = new TaskManager();
 
     //Arrival page
     @GetMapping("/")
@@ -34,10 +37,29 @@ public class ProjectController {
 
    @GetMapping("/project/{id}")
     public String getSpecificProject(@PathVariable("id") int id){
-
-
         return "project";
+   }
+
+    @GetMapping("/create-task/{id}")
+    public String rendertaskform(@PathVariable("id")int id, Model model) {
+        model.addAttribute(id);
+        return "create-task";
     }
+
+    @PostMapping("/addtask")
+    public String createTask(WebRequest request) throws SQLException{
+        String name = request.getParameter("taskname");
+        String description = request.getParameter("taskdescription");
+        int id = request.get
+        Task task = new Task(name,description);
+
+        taskManager.createTask(task,id);
+
+        return "create-task";
+    }
+
+
+
 
     //Project creation page
     @PostMapping("/projectCreator")

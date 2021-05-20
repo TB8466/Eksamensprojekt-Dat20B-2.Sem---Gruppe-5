@@ -36,6 +36,7 @@ public class DBManager {
             //Insert information from application.properties and establish connection
             connection = DriverManager.getConnection(url, user, password);
             System.out.println("Der er forbindelse");
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             System.out.println("Der er ikke forbindelse");

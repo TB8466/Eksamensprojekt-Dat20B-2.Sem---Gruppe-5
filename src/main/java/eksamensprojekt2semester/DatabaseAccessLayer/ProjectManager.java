@@ -40,8 +40,10 @@ public class ProjectManager {
         while(rs.next()){
             Project p1 = new Project(rs.getInt("project_id"),rs.getString("project_name"),rs.getString("project_desc"));
             projectList.add(p1);
+
         }
         //Return the list, so it can be transferred to view
         return projectList;
+
     }
 }
