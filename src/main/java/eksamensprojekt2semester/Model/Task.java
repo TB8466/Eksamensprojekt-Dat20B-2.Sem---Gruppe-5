@@ -1,7 +1,7 @@
 package eksamensprojekt2semester.Model;
 
 public class Task {
-    private int id;
+    private int taskid;
     private String name;
     private String description;
 
@@ -10,10 +10,18 @@ public class Task {
         this.name = name;
         this.description = description;
     }
-    public Task(int id,String name, String description) {
-        this.id   = id;
+    public Task(int taskid,String name, String description) {
+        this.taskid   = taskid;
         this.name = name;
         this.description = description;
+    }
+
+    public int getTaskid() {
+        return taskid;
+    }
+
+    public void setTaskid(int taskid) {
+        this.taskid = taskid;
     }
 
     public String getName() {
