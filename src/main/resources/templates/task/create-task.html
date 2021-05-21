@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>AddTask</title>
-    <link rel="stylesheet" href="tasks.css">
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
 <div class="taskcontainer">
@@ -26,7 +26,7 @@
             <ul th:text="${list.taskid}"></ul>
             Task description:
             <ul th:text="${list.description}"></ul>
-            <a th:href="@{/create-subtask/{id}(id=${list.id})}">Edit</a>
+            <a th:href="@{/create-subtask/{id}(id=${list.taskid})}">Edit</a>
 
         </div>
     </ul>

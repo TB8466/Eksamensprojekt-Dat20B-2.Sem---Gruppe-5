@@ -33,7 +33,7 @@ public class TaskController {
 
         taskManager.createTask(task,id);
 
-        return "/task/create-task";
+        return "/projects/get-projects";
     }
 
     @PostMapping("/getTasks")
