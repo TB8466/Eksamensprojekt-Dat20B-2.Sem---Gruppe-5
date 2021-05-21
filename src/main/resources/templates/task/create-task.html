@@ -26,6 +26,7 @@
             <ul th:text="${list.taskid}"></ul>
             Task description:
             <ul th:text="${list.description}"></ul>
+            <a th:href="@{/create-subtask/{id}(id=${list.id})}">Edit</a>
 
         </div>
     </ul>

@@ -9,14 +9,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class SubTaskManager {
-    public void createTask(SubTask subTask, Project project) throws SQLException {
+    public void createSubTask(SubTask subTask, int id) throws SQLException {
         Connection connection = DBManager.getConnection();
-        String query = "INSERT INTO tasks (tasks_NAME, tasks_DESC, connected_project ) VALUES(?,?,?)"; //SQL query
+        String query = "INSERT INTO subtasks (subtask_NAME, subtask_DESC, estimated_time, connected_task ) VALUES(?,?,?,?)"; //SQL query
         PreparedStatement preparedStatement = connection.prepareStatement(query); // Insert query into Ps
 
         preparedStatement.setString(1, subTask.getName());
         preparedStatement.setString(2, subTask.getDesc());
-
+        preparedStatement.setDouble(3, subTask.getEstimatedTime());
+        preparedStatement.setInt(4, id);
         preparedStatement.executeUpdate();
     }
 }
