@@ -36,5 +36,4 @@ SubtaskManager subtaskManager = new SubtaskManager();
         subtaskManager.createSubtask(subtask,id);
         return "redirect:/create-subtask/"+id;
     }
-
 }

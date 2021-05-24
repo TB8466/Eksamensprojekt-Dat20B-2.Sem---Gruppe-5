@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        table, th, td {
+        table{
+            width: 100%;
+        }
+        th, td {
             border: 1px solid black;
+        }
+        tr:hover {background-color: #f5f5f5;}
+        th {
+            background-color: #4CAF50;
+            color: white;
         }
     </style>
 </head>
@@ -17,18 +25,24 @@
        <thead>
         <tr>
             <th>Task Name</th>
-            <th>Subtask</th>
         </tr>
        </thead>
        <tbody>
-       <tr th:each="list : ${subtaskList}">
-           <td>
-               <p th:each="list2 : ${taskList}" th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list2.name}"></p>
-           </td>
+       <th:block th:each="list2 : ${taskList}">
+           <th th:text="${list2.name}">
+           <td th:each="list : ${subtaskList}" th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list.name}"></td>
+           </th>
+       </th:block>
+       <!--<tr>
+
+
+           <th:block th:each="list : ${subtaskList}">
            <td th:text="${list.name}"></td>
-       </tr>
+           </th:block>
+       </tr>-->
        </tbody>
     </table>
 
 </body>
 </html>
+<!--th:if="${list2.taskid} == ${list.connectedTask}"-->
