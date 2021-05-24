@@ -1,0 +1,31 @@
+h1{
+    color: mintcream;
+    font-family: SansSerif;
+    text-align: center;
+}
+h2{
+    color: mintcream;
+    font-family: SansSerif;
+    text-align: center;
+}
+body{
+background-color: mintcream;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+.form1{
+    background-color: #59869d;
+}
+footer{
+    background-color: bisque;
+}
+.form{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    width: 500px;
+    margin-top: 15px;
+
+}

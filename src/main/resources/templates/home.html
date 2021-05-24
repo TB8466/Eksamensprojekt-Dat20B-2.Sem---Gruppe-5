@@ -2,21 +2,35 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/home.css" th:href="@{/css/home.css}">
     <meta charset="UTF-8">
     <title>ALPHA TOOLS</title>
 
 </head>
+<header>
+    <nav>
+
+    </nav>
+</header>
 <body>
 
-
+<div class="form1" >
+    <h1>Welcome to the AlphaTools WebApp!</h1>
+    <br>
+    <h2>Create a new project, or view an existing one!</h2>
 <form name="getProjects" action="/getProjects"  method="post">
-  <input type="submit" value="VIEW EXISTING PROJECTS">
+  <input class="form" type="submit" value="VIEW EXISTING PROJECTS">
 </form>
 
 <form name="createProjects" action="/projectCreator"  method="post">
-  <input type="submit"  value="CREATE NEW PROJECT">
+  <input class="form" type="submit"  value="CREATE NEW PROJECT">
+    <br>
 </form>
-
+</div>
 </body>
+
+<footer>This is the footer
+<br>
+</footer>
+
 </html>
