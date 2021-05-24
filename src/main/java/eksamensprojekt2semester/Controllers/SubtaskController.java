@@ -31,9 +31,9 @@ SubtaskManager subtaskManager = new SubtaskManager();
         String description = request.getParameter("subtaskdescription");
         int id = Integer.parseInt(request.getParameter("id"));
         double eta= Double.parseDouble(request.getParameter("estimatedTime"));
-        Subtask subTask = new Subtask(name,description,eta);
+        Subtask subtask = new Subtask(name,description,eta);
 
-        subtaskManager.createSubtask(subTask,id);
+        subtaskManager.createSubtask(subtask,id);
         return "redirect:/create-subtask/"+id;
     }
 
