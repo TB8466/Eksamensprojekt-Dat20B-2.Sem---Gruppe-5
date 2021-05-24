@@ -1,12 +1,12 @@
 package eksamensprojekt2semester.Model;
 
-public class SubTask {
+public class subTask {
 
     private String name;
     private String desc;
     private double estimatedTime;
 
-    public SubTask(String name, String desc, double estimatedTime) {
+    public subTask(String name, String desc, double estimatedTime) {
         this.name = name;
         this.desc = desc;
         this.estimatedTime = estimatedTime;

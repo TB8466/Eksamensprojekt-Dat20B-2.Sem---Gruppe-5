@@ -1,8 +1,7 @@
 package eksamensprojekt2semester.Controllers;
 
 import eksamensprojekt2semester.DatabaseAccessLayer.SubTaskManager;
-import eksamensprojekt2semester.Model.SubTask;
-import eksamensprojekt2semester.Model.Task;
+import eksamensprojekt2semester.Model.subTask;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +31,7 @@ SubTaskManager subTaskManager = new SubTaskManager();
         String description = request.getParameter("subtaskdescription");
         int id = Integer.parseInt(request.getParameter("id"));
         double eta= Double.parseDouble(request.getParameter("estimatedTime"));
-        SubTask subTask = new SubTask(name,description,eta);
+        subTask subTask = new subTask(name,description,eta);
 
         subTaskManager.createSubTask(subTask,id);
 
