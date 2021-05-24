@@ -23,6 +23,7 @@ public class ProjectController {
     @PostMapping("/getProjects")
     public String renderGetProjects(Model model) throws SQLException {
         model.addAttribute("projectList",projectManager.getProjects());
+
         return "/projects/get-projects";
     }
 

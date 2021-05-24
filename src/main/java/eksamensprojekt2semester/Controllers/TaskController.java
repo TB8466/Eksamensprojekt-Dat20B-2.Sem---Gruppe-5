@@ -22,7 +22,7 @@ public class TaskController {
         return "/task/create-task";
     }
 
-    //Creator task
+    //Create a task
     @PostMapping("/addtask")
     public String createTask(WebRequest request) throws SQLException {
 
@@ -32,15 +32,6 @@ public class TaskController {
         Task task = new Task(name,description);
 
         taskManager.createTask(task,id);
-
-        return "/projects/get-projects";
+        return "redirect:/create-task/"+id;
     }
-
-    @PostMapping("/getTasks")
-    public String renderGetTasks(WebRequest request, Model model) throws SQLException {
-
-        return "/task/create-task";
-
-    }
-
 }

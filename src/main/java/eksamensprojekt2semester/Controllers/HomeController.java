@@ -13,7 +13,4 @@ public class HomeController {
         return "home";
     }
 
-    // fjern hvis vi har lavet "logo back to home"
-    @PostMapping("/backToHome")
-    public String renderBackToHome(){return "home";}
 }

@@ -15,7 +15,7 @@ public class SubtaskController {
 SubtaskManager subtaskManager = new SubtaskManager();
 
 
-    //displayer task
+    //displayer subtask
     @GetMapping("/create-subtask/{taskid}")
     public String renderSubtaskform(@PathVariable("taskid") int id, Model model) throws SQLException {
         model.addAttribute("id",id);
@@ -23,9 +23,9 @@ SubtaskManager subtaskManager = new SubtaskManager();
         return "/subtask/create-subtask";
     }
 
-    //Creator task
+    //Create a subtask
     @PostMapping("/addsubtask")
-    public String createTask(WebRequest request) throws SQLException {
+    public String createSubtask(WebRequest request) throws SQLException {
 
         String name = request.getParameter("subtaskname");
         String description = request.getParameter("subtaskdescription");
@@ -34,18 +34,7 @@ SubtaskManager subtaskManager = new SubtaskManager();
         Subtask subTask = new Subtask(name,description,eta);
 
         subtaskManager.createSubtask(subTask,id);
-
-        return "/subtask/create-subtask";
+        return "redirect:/create-subtask/"+id;
     }
-
-    @PostMapping("/getSubTasks")
-    public String renderGetTasks(WebRequest request, Model model) throws SQLException {
-
-        return "/subtask/create-subtask";
-
-
-
-}
-
 
 }
