@@ -18,7 +18,7 @@ public class TaskController {
     @GetMapping("/create-task/{id}")
     public String displayTaskForm(@PathVariable("id") int id, Model model) throws SQLException {
         model.addAttribute("id",id);
-        model.addAttribute("taskList", taskManager.viewTasks(id));
+        model.addAttribute("taskList", taskManager.getTasks(id));
         return "/task/create-task";
     }
 

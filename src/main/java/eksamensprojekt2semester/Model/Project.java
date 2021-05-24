@@ -1,21 +1,23 @@
 package eksamensprojekt2semester.Model;
 
 public class Project {
-    //Main attributes. Will be used in a resultset in ProjectManager.java
+    //Main attributes of a project
     private int id;
     private String name;
     private String description;
 
-    //Constructor used for building a project object
+    //Constructor for building a standard project
+    public Project(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+    //Constructor needed to view a certain project
     public Project(int id, String name, String description) {
         this.id=id;
         this.name = name;
         this.description = description;
     }
-    public Project(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
+
 
     // Getter/Setter methods
 

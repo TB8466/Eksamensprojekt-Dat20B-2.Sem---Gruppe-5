@@ -1,6 +1,8 @@
 package eksamensprojekt2semester.Controllers;
 
 import eksamensprojekt2semester.DatabaseAccessLayer.ProjectManager;
+import eksamensprojekt2semester.DatabaseAccessLayer.SubtaskManager;
+import eksamensprojekt2semester.DatabaseAccessLayer.TaskManager;
 import eksamensprojekt2semester.Model.Project;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +22,19 @@ public class ProjectController {
     //View all projects
     @PostMapping("/getProjects")
     public String renderGetProjects(Model model) throws SQLException {
-        model.addAttribute("projectList",projectManager.viewProjects());
+        model.addAttribute("projectList",projectManager.getProjects());
         return "/projects/get-projects";
     }
 
    @GetMapping("/project/{id}")
-    public String getSpecificProject(@PathVariable("id") int id){
+    public String getSpecificProject(@PathVariable("id") int id, Model model) throws SQLException {
+        TaskManager taskManager = new TaskManager();
+        SubtaskManager subtaskManager = new SubtaskManager();
+
+         model.addAttribute("ProjectNumber",id);
+         model.addAttribute("taskList",taskManager.getTasks(id));
+         model.addAttribute("subtaskList",subtaskManager.getAllSubtasks(id));
+
         return "/projects/project";
    }
 

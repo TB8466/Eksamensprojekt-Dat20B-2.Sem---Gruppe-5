@@ -1,9 +1,7 @@
 package eksamensprojekt2semester.DatabaseAccessLayer;
 
 
-import eksamensprojekt2semester.Model.Project;
 import eksamensprojekt2semester.Model.Task;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +10,7 @@ import java.util.ArrayList;
 
 public class TaskManager {
 
-        //Opretter en task i databasen
+    //Opretter en task i databasen
     public void createTask(Task task, int id) throws SQLException {
         Connection connection = DBManager.getConnection();
         String query = "INSERT INTO tasks (task_NAME, task_DESC, connected_project ) VALUES(?,?,?)"; //SQL query
@@ -20,11 +18,11 @@ public class TaskManager {
 
         preparedStatement.setString(1, task.getName());
         preparedStatement.setString(2, task.getDescription());
-        preparedStatement.setInt(3,id);
+        preparedStatement.setInt(3, id);
         preparedStatement.executeUpdate();
     }
 
-    public ArrayList<Task> viewTasks(int id) throws SQLException {
+    public ArrayList<Task> getTasks(int id) throws SQLException {
         Connection connection = DBManager.getConnection();
         String query = "SELECT * FROM tasks WHERE connected_project = ?";
         PreparedStatement ps = connection.prepareStatement(query);
@@ -33,26 +31,10 @@ public class TaskManager {
         ResultSet rs = ps.executeQuery();
 
         ArrayList<Task> taskList = new ArrayList<>();
-        while(rs.next()){
+        while (rs.next()) {
             Task task = new Task(rs.getInt("task_id"), rs.getString("task_name"), rs.getString("task_desc"));
             taskList.add(task);
         }
-        return taskList;
-    }
-
-    public ArrayList<Task> viewTasks() throws SQLException{
-        Connection connection = DBManager.getConnection();
-        String query= "select * from projects.tasks";
-        PreparedStatement ps = connection.prepareStatement(query);
-
-        ResultSet rs = ps.executeQuery();
-
-        ArrayList<Task> taskList = new ArrayList<>();
-        while(rs.next()){
-            Task t1 = new Task(rs.getInt("connected_project"),rs.getString("task_name"), rs.getString("task_desc"));
-        taskList.add(t1);
-        }
-
         return taskList;
     }
 }

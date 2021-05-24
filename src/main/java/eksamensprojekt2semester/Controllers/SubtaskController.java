@@ -1,7 +1,7 @@
 package eksamensprojekt2semester.Controllers;
 
-import eksamensprojekt2semester.DatabaseAccessLayer.SubTaskManager;
-import eksamensprojekt2semester.Model.subTask;
+import eksamensprojekt2semester.DatabaseAccessLayer.SubtaskManager;
+import eksamensprojekt2semester.Model.Subtask;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,14 +12,14 @@ import org.springframework.web.context.request.WebRequest;
 import java.sql.SQLException;
 @Controller
 public class SubtaskController {
-SubTaskManager subTaskManager = new SubTaskManager();
+SubtaskManager subtaskManager = new SubtaskManager();
 
 
     //displayer task
     @GetMapping("/create-subtask/{taskid}")
-    public String rendertaskform(@PathVariable("taskid") int id, Model model) throws SQLException {
+    public String renderSubtaskform(@PathVariable("taskid") int id, Model model) throws SQLException {
         model.addAttribute("id",id);
-      //  model.addAttribute("taskList", subTaskManager.viewSubTasks(id));
+        model.addAttribute("subtaskList", subtaskManager.getSubtasks(id));
         return "/subtask/create-subtask";
     }
 
@@ -31,9 +31,9 @@ SubTaskManager subTaskManager = new SubTaskManager();
         String description = request.getParameter("subtaskdescription");
         int id = Integer.parseInt(request.getParameter("id"));
         double eta= Double.parseDouble(request.getParameter("estimatedTime"));
-        subTask subTask = new subTask(name,description,eta);
+        Subtask subTask = new Subtask(name,description,eta);
 
-        subTaskManager.createSubTask(subTask,id);
+        subtaskManager.createSubtask(subTask,id);
 
         return "/subtask/create-subtask";
     }
