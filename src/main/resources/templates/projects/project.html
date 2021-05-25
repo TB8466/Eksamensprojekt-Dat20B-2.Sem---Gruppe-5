@@ -5,13 +5,19 @@
     <title>Title</title>
     <style>
         table{
-            margin: auto;
-            width: 50%;
+            margin-top: 50px;
+            width: 33%;
+            float: left;
+            padding: 5px;
         }
+        h1{
+            text-align: center;
+        }
+
         th, td {
+            text-align: center;
             border: 1px solid black;
         }
-        tr:hover {background-color: #f5f5f5;}
         th {
             background-color: #4CAF50;
             color: white;
@@ -29,7 +35,9 @@
         </tr>
        </thead>
        <tbody>
-           <td th:each="list : ${subtaskList}" th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list.name}"></td>
+           <tr th:each="list : ${subtaskList}" >
+               <td th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list.name}"></td>
+           </tr>
        </tbody>
    </table>
 </body>
