@@ -20,7 +20,7 @@ public class ProjectController {
 
 
     //View all projects
-    @PostMapping("/getProjects")
+    @GetMapping("/getProjects")
     public String renderGetProjects(Model model) throws SQLException {
         model.addAttribute("projectList",projectManager.getProjects());
 

@@ -2,22 +2,32 @@ h1{
     color: mintcream;
     font-family: SansSerif;
     text-align: center;
+    font-weight: bolder;
 }
-h2{
-    color: mintcream;
-    font-family: SansSerif;
-    text-align: center;
-}
+
 body{
 background-color: mintcream;
     margin-right: 5%;
     margin-left: 5%;
+
 }
-.form1{
+.flexcontainer{
+    display: flex;
     background-color: #59869d;
+    justify-content: center;
+
+
 }
+.flexcontainer2{
+    display: flex;
+    background-color: #59869d;
+    flex-direction: column;
+    height: 600px;
+
+}
+
 footer{
-    background-color: bisque;
+    background-color: #dedede;
 }
 .form{
 
@@ -27,5 +37,12 @@ footer{
     padding: 15px;
     width: 500px;
     margin-top: 15px;
+    font-family: SansSerif;
+    font-weight: bold;
 
+
+}
+.footer{
+    height: 100px;
+    margin-top: 30px;
 }

@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/projectcreator.css" th:href="@{/css/projectcreator.css}">
 
     <title>CreateProject</title>
 </head>
 <body>
+<nav th:replace="fragment :: navbar"></nav>
 <div class="projectcontainer">
+    <h1>Please fill in the name and description for your project!</h1>
+
     <!-- id=projectform giver os vores form, som vi kan bruge til til vores textarea -->
     <form name="createproject" action="/createproject" method ="POST" id="projectform">
 
-        <input type="text" name="projectname" placeholder=" Name:" required>
-        <input type="submit">
+        <input class="form" type="text" name="projectname" placeholder=" Name:">
+        <textarea class="form" name="projectdescription" form="projectform" placeholder="Enter your description"></textarea>
+        <input class="butt" type="submit" Value="Create">
     </form>
-    <textarea name="projectdescription" form="projectform" placeholder="Enter your description"></textarea>
+
+
 </div>
 
 <!-- indsæt jonas kode her-->

@@ -7,30 +7,32 @@
     <title>ALPHA TOOLS</title>
 
 </head>
-<header>
-    <nav>
 
-    </nav>
-</header>
 <body>
+<nav th:replace="fragment :: navbar"></nav>
 
-<div class="form1" >
+<div class="flexcontainer2">
     <h1>Welcome to the AlphaTools WebApp!</h1>
+    <h1>Create a new project, or view an existing one</h1>
+<div class="flexcontainer" >
+
     <br>
-    <h2>Create a new project, or view an existing one!</h2>
-<form name="getProjects" action="/getProjects"  method="post">
+
+<form name="getProjects" action="/getProjects"  method="get" style="margin: 10px">
   <input class="form" type="submit" value="VIEW EXISTING PROJECTS">
 </form>
 
-<form name="createProjects" action="/projectCreator"  method="post">
+<form name="createProjects" action="/projectCreator"  method="post" style="margin: 10px">
   <input class="form" type="submit"  value="CREATE NEW PROJECT">
     <br>
 </form>
 </div>
+
+</div>
 </body>
 
-<footer>This is the footer
-<br>
+<footer class="footer" style="height: 100px">This is the footer
+
 </footer>
 
 </html>
