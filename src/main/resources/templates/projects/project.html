@@ -5,7 +5,8 @@
     <title>Title</title>
     <style>
         table{
-            width: 100%;
+            margin: auto;
+            width: 50%;
         }
         th, td {
             border: 1px solid black;
@@ -21,28 +22,15 @@
 <h1>PROJEKT: <h1 th:text="${ProjectNumber}">ProjectID</h1></h1>
 
 
-   <table>
+   <table th:each="list2 : ${taskList}">
        <thead>
         <tr>
-            <th>Task Name</th>
+            <th  th:text="${list2.name}"></th>
         </tr>
        </thead>
        <tbody>
-       <th:block th:each="list2 : ${taskList}">
-           <th th:text="${list2.name}">
            <td th:each="list : ${subtaskList}" th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list.name}"></td>
-           </th>
-       </th:block>
-       <!--<tr>
-
-
-           <th:block th:each="list : ${subtaskList}">
-           <td th:text="${list.name}"></td>
-           </th:block>
-       </tr>-->
        </tbody>
-    </table>
-
+   </table>
 </body>
 </html>
-<!--th:if="${list2.taskid} == ${list.connectedTask}"-->
