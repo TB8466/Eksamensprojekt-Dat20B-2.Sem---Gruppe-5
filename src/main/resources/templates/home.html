@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/home.css" th:href="@{/css/home.css}">
-    <meta charset="UTF-8">
-    <title>ALPHA TOOLS</title>
 
-</head>
+<head th:replace="headfragment :: headfrag"></head>
+<header th:replace="navfragment :: navbar"></header>
 
 <body>
-<nav th:replace="fragment :: navbar"></nav>
 
-<div class="flexcontainer2">
-    <h1>Welcome to the AlphaTools WebApp!</h1>
-    <h1>Create a new project, or view an existing one</h1>
-<div class="flexcontainer" >
+    <div class="flexcontainer2">
+        <h1>Welcome to the AlphaTools WebApp!</h1>
+        <h1>Create a new project, or view an existing one</h1>
 
-    <br>
+        <div class="flexcontainer" >
 
-<form name="getProjects" action="/getProjects"  method="get" style="margin: 10px">
-  <input class="form" type="submit" value="VIEW EXISTING PROJECTS">
-</form>
+            <form name="getProjects" action="/getProjects"  method="get" style="margin: 10px">
+                <input class="form" type="submit" value="VIEW EXISTING PROJECTS">
+            </form>
 
-<form name="createProjects" action="/projectCreator"  method="post" style="margin: 10px">
-  <input class="form" type="submit"  value="CREATE NEW PROJECT">
-    <br>
-</form>
-</div>
+            <form name="createProjects" action="/projectCreator"  method="post" style="margin: 10px">
+              <input class="form" type="submit"  value="CREATE NEW PROJECT">
+            </form>
+        </div>
 
-</div>
+    </div>
 </body>
 
-<footer class="footer" style="height: 100px">This is the footer
-
-</footer>
-
+<footer th:replace="footerfragment :: footer"></footer>
 </html>

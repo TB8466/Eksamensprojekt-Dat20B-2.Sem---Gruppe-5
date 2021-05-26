@@ -1,44 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        table{
-            margin-top: 50px;
-            width: 33%;
-            float: left;
-            padding: 5px;
-        }
-        h1{
-            text-align: center;
-        }
 
-        th, td {
-            text-align: center;
-            border: 1px solid black;
-        }
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
-</head>
+<head th:replace="headfragment :: headfrag"></head>
+<header th:replace="navfragment :: navbar"></header>
+
 <body>
-<h1>PROJEKT: <h1 th:text="${ProjectNumber}">ProjectID</h1></h1>
+    <h1>PROJEKT: <h1 th:text="${ProjectNumber}">ProjectID</h1></h1>
 
+    <table class="table" th:each="list2 : ${taskList}">
 
-   <table th:each="list2 : ${taskList}">
-       <thead>
-        <tr>
-            <th  th:text="${list2.name}"></th>
-        </tr>
-       </thead>
-       <tbody>
-           <tr th:each="list : ${subtaskList}" >
-               <td th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list.name}"></td>
-           </tr>
-       </tbody>
-   </table>
+           <thead>
+                <tr class="tr">
+                    <th class="th" th:text="${list2.name}"></th>
+                </tr>
+           </thead>
+
+           <tbody>
+               <td class="td" th:each="list : ${subtaskList}" th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list.name}"></td>
+           </tbody>
+
+    </table>
 </body>
+
+<footer th:replace="footerfragment :: footer"></footer>
 </html>

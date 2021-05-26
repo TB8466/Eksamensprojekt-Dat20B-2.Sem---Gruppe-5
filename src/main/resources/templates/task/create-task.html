@@ -1,52 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>AddTask</title>
-    <link rel="stylesheet" href="home.css">
 
-    <style>
-        .grid-container {
-            display: inline-grid;
-            grid-template-columns: auto auto auto;
-            background-color: white;
-            padding: 1px;
-        }
+<head th:replace="headfragment :: headfrag"></head>
+<header th:replace="navfragment :: navbar"></header>
 
-        .grid-item {
-            background-color: #59869d;
-            border: 1px solid rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            font-size: 30px;
-            text-align: center;
-        }
-    </style>
-</head>
 <body>
-<div class="taskcontainer">
-    <!-- id=projectform giver os vores form, som vi kan bruge til til vores textarea -->
-    <form name="addtask" action="/addtask" method ="POST" id="taskform">
-        <input type="hidden" name="id" th:value="${id}">
-        <input type="text" name="taskname" placeholder="Name:">
-        <input type="submit">
-    </form>
-    <textarea name="taskdescription" form="taskform" placeholder="Enter your description"></textarea>
-</div>
 
-<h4>Current tasks: </h4>
-<div class ="grid-container">
-    <ul th:each="list : ${taskList}">
-        <div class="grid-item">
-            <ul th:text ="${list.name}"></ul>
-            <br>
-            iD:
-            <ul th:text="${list.taskid}"></ul>
-            Task description:
-            <ul th:text="${list.description}"></ul>
-            <a th:href="@{/create-subtask/{id}(id=${list.taskid})}">Edit</a>
+    <div class="taskcontainer">
+        <form name="addtask" action="/addtask" method ="POST" id="taskform">
+            <input type="hidden" name="id" th:value="${id}">
+            <input type="text" name="taskname" placeholder="Name:">
+            <input type="submit">
+        </form>
+        <textarea name="taskdescription" form="taskform" placeholder="Enter your description"></textarea>
+    </div>
 
-        </div>
-    </ul>
-</div>
+         <h4>Current tasks: </h4>
+
+    <div class ="grid-container">
+        <ul th:each="list : ${taskList}">
+
+            <div class="grid-item">
+                <ul th:text ="${list.name}"></ul>
+                <br>
+                iD:
+                <ul th:text="${list.taskid}"></ul>
+                Task description:
+                <ul th:text="${list.description}"></ul>
+                <a th:href="@{/create-subtask/{id}(id=${list.taskid})}">Edit</a>
+            </div>
+
+        </ul>
+    </div>
+
 </body>
+
+<footer th:replace="footerfragment :: footer"></footer>
 </html>
