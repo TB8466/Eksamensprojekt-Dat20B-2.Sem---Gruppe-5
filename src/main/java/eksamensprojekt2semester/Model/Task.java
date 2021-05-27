@@ -4,16 +4,26 @@ public class Task {
     private int taskid;
     private String name;
     private String description;
+    private double estimatedTime;
 
 
     public Task(String name, String description) {
         this.name = name;
         this.description = description;
     }
-    public Task(int taskid,String name, String description) {
+    public Task(int taskid,String name, String description, double estimatedTime) {
         this.taskid   = taskid;
         this.name = name;
         this.description = description;
+        this.estimatedTime = estimatedTime;
+    }
+
+    public double getEstimatedTime() {
+        return estimatedTime;
+    }
+
+    public void setEstimatedTime(double estimatedTime) {
+        this.estimatedTime = estimatedTime;
     }
 
     public int getTaskid() {

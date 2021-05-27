@@ -14,8 +14,8 @@
                 <div class="grid-item"> <ul>Project Name: </ul>
                     <ul th:text="${list.name}"></ul>
                     <br>
-                    iD:
-                    <ul th:text="${list.id}"></ul>
+                   Estimated Time:
+                    <ul th:text="${list.estimatedTime}"></ul>
                     <ul> Project Description: </ul>
                     <ul th:text="${list.description}"></ul>
                     <a th:href="@{/project/{id}(id=${list.id})}">View</a>

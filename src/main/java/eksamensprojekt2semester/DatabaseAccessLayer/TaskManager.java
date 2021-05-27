@@ -32,9 +32,28 @@ public class TaskManager {
 
         ArrayList<Task> taskList = new ArrayList<>();
         while (rs.next()) {
-            Task task = new Task(rs.getInt("task_id"), rs.getString("task_name"), rs.getString("task_desc"));
+            Task task = new Task(rs.getInt("task_id"), rs.getString("task_name"), rs.getString("task_desc"), estimatedTime(rs.getInt("task_id")));
             taskList.add(task);
         }
         return taskList;
+    }
+
+    //Estimated time method for tasks
+    public double estimatedTime(int id) throws SQLException {
+
+        double estimatedTime = 0;
+
+        Connection connection = DBManager.getConnection();
+        String query = "SELECT sum(estimated_time) FROM subtasks WHERE connected_task = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+
+
+        ps.setInt(1, id);
+        ResultSet rs = ps.executeQuery();
+
+        rs.next();
+        estimatedTime = estimatedTime + rs.getDouble(1);
+
+        return estimatedTime;
     }
 }

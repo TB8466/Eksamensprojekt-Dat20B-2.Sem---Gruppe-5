@@ -5,6 +5,8 @@ public class Project {
     private int id;
     private String name;
     private String description;
+    private double estimatedTime;
+
 
     //Constructor for building a standard project
     public Project(String name, String description) {
@@ -12,14 +14,24 @@ public class Project {
         this.description = description;
     }
     //Constructor needed to view a certain project
-    public Project(int id, String name, String description) {
+    public Project(int id, String name, String description, double estimatedTime) {
         this.id=id;
         this.name = name;
         this.description = description;
+        this.estimatedTime = estimatedTime;
     }
 
 
     // Getter/Setter methods
+
+
+    public double getEstimatedTime() {
+        return estimatedTime;
+    }
+
+    public void setEstimatedTime(double estimatedTime) {
+        this.estimatedTime = estimatedTime;
+    }
 
     public int getId() {
         return id;

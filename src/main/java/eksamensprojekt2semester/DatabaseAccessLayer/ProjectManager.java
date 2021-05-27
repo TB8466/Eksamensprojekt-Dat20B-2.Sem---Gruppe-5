@@ -35,11 +35,27 @@ public class ProjectManager {
 
         ArrayList<Project> projectList = new ArrayList<>();
         while(rs.next()){
-            Project p1 = new Project(rs.getInt("project_id"),rs.getString("project_name"),rs.getString("project_desc"));
+            Project p1 = new Project(rs.getInt("project_id"),rs.getString("project_name"),rs.getString("project_desc"), estimatedTime(rs.getInt("project_id")));
             projectList.add(p1);
         }
         //Return the list, so it can be transferred to view
         return projectList;
 
+    }
+
+    public double estimatedTime(int id) throws SQLException {
+        double estimatedTime = 0;
+
+        Connection connection = DBManager.getConnection();
+        String query = "SELECT sum(estimated_time) FROM subtasks JOIN tasks ON subtasks.connected_task = tasks.task_id  WHERE tasks.connected_project = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+
+        ps.setInt(1, id);
+        ResultSet rs = ps.executeQuery();
+
+        rs.next();
+        estimatedTime = estimatedTime + rs.getDouble(1);
+
+        return estimatedTime;
     }
 }
