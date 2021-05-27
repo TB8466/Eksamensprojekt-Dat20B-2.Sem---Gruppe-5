@@ -10,6 +10,7 @@ public class HomeController {
     //Arrival page
     @GetMapping("/")
     public String renderHome(){
+        System.out.println("LOOK FOR THIS HOME");
         return "home";
     }
 
