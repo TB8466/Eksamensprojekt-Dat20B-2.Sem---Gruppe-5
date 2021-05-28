@@ -31,3 +31,11 @@ estimated_time DOUBLE NOT NULL,
 connected_task INT,
 FOREIGN KEY (connected_task) REFERENCES tasks(task_id)
 );
+
+#sletter denne Contraint i FK
+ALTER TABLE subtasks DROP CONSTRAINT subtasks_ibfk_1;
+
+#Add ny ContraintFK
+ALTER TABLE subtasks
+    ADD CONSTRAINT FK_tasks_subtasks_Cascade_Delete
+        foreign key (connected_task) references tasks(task_id) on delete cascade;

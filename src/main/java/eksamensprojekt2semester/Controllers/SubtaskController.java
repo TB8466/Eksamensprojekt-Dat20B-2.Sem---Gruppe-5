@@ -36,4 +36,14 @@ SubtaskManager subtaskManager = new SubtaskManager();
         subtaskManager.createSubtask(subtask,id);
         return "redirect:/create-subtask/"+id;
     }
+
+    @PostMapping("/delete-subtask")
+    public String deleteSubTask(WebRequest request,int id) throws SQLException {
+        String subtaskID = request.getParameter("subtaskid");
+        subtaskManager.deleteSubTask(id);
+
+        //skal laves om
+
+        return "redirect:/create-subtask/" + subtaskID;
+    }
 }
