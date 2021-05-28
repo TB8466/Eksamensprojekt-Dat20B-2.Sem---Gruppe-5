@@ -21,7 +21,6 @@ public class DBManager {
 
     //Primary connection method -- Establishes connection to mySQL database
     public static Connection getConnection() {
-        System.out.println("LOOK FOR THIS");
         //Check if connection is already established
         if (connection != null) {
             return connection;

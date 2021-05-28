@@ -26,6 +26,7 @@ public class ProjectManager {
 
     //Receives data from mySQL and insert the data into an ArrayList
     public ArrayList<Project> getProjects() throws SQLException {
+        System.out.println("LOOK FOR THIS");
         Connection connection = DBManager.getConnection();
         String query = "SELECT * from projects";
         PreparedStatement ps = connection.prepareStatement(query);
