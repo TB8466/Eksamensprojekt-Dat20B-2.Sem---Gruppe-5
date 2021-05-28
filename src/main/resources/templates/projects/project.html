@@ -5,7 +5,7 @@
 <header th:replace="navfragment :: navbar"></header>
 
 <body>
-    <h2>PROJEKT: <h1 th:text="${ProjectNumber}">ProjectID</h1></h2>
+    <h2>PROJEKT: <h1 th:text="${ProjectNumber}">ProjectID</h1> Amount of workdays: <h3 th:text="${time}"></h3></h2>
 
     <table class="table" th:each="list2 : ${taskList}">
 

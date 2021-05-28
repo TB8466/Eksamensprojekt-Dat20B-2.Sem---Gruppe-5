@@ -33,6 +33,7 @@ public class ProjectController {
         SubtaskManager subtaskManager = new SubtaskManager();
 
          model.addAttribute("ProjectNumber",id);
+         model.addAttribute("time",projectManager.estimatedTime(id));
          model.addAttribute("taskList",taskManager.getTasks(id));
          model.addAttribute("subtaskList",subtaskManager.getAllSubtasks(id));
 
