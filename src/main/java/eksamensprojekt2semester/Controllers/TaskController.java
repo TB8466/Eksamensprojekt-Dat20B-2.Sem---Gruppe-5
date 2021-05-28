@@ -40,6 +40,7 @@ public class TaskController {
         String taskID = request.getParameter("taskid");
         taskManager.deleteTask(id);
 
+
         return "redirect:/create-task/" + taskID;
     }
 

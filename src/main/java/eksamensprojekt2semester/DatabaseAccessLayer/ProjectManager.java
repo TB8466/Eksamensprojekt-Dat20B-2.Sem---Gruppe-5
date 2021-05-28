@@ -58,4 +58,13 @@ public class ProjectManager {
 
         return estimatedTime;
     }
+    public void deleteProject(int id) throws SQLException {
+        Connection connection = DBManager.getConnection();
+        String query = "DELETE FROM projects WHERE project_id = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+
+        ps.setInt(1, id);
+        ps.executeUpdate();
+    }
+
 }

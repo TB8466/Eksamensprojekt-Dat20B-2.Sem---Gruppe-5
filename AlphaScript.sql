@@ -39,3 +39,11 @@ ALTER TABLE subtasks DROP CONSTRAINT subtasks_ibfk_1;
 ALTER TABLE subtasks
     ADD CONSTRAINT FK_tasks_subtasks_Cascade_Delete
         foreign key (connected_task) references tasks(task_id) on delete cascade;
+
+#sletter constraint igen. Tror den skal eksikveres først før vi kan ADD constraint:
+ALTER TABLE tasks DROP CONSTRAINT tasks_ibfk_1
+
+#Add ny ConstraintFK
+ALTER TABLE tasks
+ADD CONSTRAINT FK_projects_tasks_Cascade_Delete
+foreign key (connected_project) references projects(project_id) on delete cascade;

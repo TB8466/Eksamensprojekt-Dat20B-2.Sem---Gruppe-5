@@ -56,6 +56,15 @@ public class ProjectController {
 
         return "home";
     }
+    @PostMapping("/delete-project")
+    public String deleteProject(WebRequest request, int id) throws SQLException {
+        String projectID = request.getParameter("projectid");
+        projectManager.deleteProject(id);
+
+
+        //Forkert redirect: Kan ikke få det til at spille, men ellers virker slet project også nu :)
+        return "redirect:/get-projects/" + projectID;
+    }
 
 
 }

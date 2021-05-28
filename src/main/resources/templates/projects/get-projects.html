@@ -20,6 +20,14 @@
                     <ul th:text="${list.description}"></ul>
                     <a th:href="@{/project/{id}(id=${list.id})}">View</a>
                     <a th:href="@{/create-task/{id}(id=${list.id})}">Edit</a>
+
+                    <div class="deletebtn">
+                        <form name="deleteProject" action="/delete-project" method="post">
+                            <input hidden name="id" th:value="${list.id}">
+                            <input type="hidden" name="projectid" th:value="${id}">
+                            <input type="submit" value="delete">
+                        </form>
+                    </div>
                 </div>
             </ul>
         </div>
