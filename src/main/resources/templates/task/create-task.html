@@ -28,6 +28,14 @@
                 Task description:
                 <ul th:text="${list.description}"></ul>
                 <a th:href="@{/create-subtask/{id}(id=${list.taskid})}">Edit</a>
+
+                <div class="deletebtn">
+                    <form name="deleteTask" action="/delete-task" method="post">
+                        <input hidden name="id" th:value="${list.taskid}">
+                        <input type="hidden" name="taskid" th:value="${id}">
+                        <input type="submit" value="delete">
+                    </form>
+                </div>
             </div>
 
         </ul>

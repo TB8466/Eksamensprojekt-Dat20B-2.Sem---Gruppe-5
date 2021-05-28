@@ -30,6 +30,15 @@
                 <ul th:text="${list.estimatedTime}"></ul>
                 Subtask description:
                 <ul th:text="${list.description}"></ul>
+
+
+                <div class="deletebtn">
+                    <form name="deleteSubtask" action="/delete-subtask" method="post">
+                        <input hidden name="id" th:value="${list.id}">
+                        <input type="hidden" name="subtaskid" th:value="${id}">
+                        <input type="submit" value="delete">
+                     </form>
+                </div>
             </div>
         </ul>
 

@@ -56,4 +56,13 @@ public class TaskManager {
 
         return estimatedTime;
     }
+
+    public void deleteTask(int id) throws SQLException {
+        Connection connection = DBManager.getConnection();
+        String query = "DELETE FROM tasks WHERE task_id = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+
+        ps.setInt(1, id);
+        ps.executeUpdate();
+    }
 }

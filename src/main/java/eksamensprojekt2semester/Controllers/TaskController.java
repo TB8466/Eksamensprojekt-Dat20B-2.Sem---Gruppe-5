@@ -34,4 +34,13 @@ public class TaskController {
         taskManager.createTask(task,id);
         return "redirect:/create-task/"+id;
     }
+
+    @PostMapping("/delete-task")
+    public String deleteTask(WebRequest request, int id) throws SQLException {
+        String taskID = request.getParameter("taskid");
+        taskManager.deleteTask(id);
+
+        return "redirect:/create-task/" + taskID;
+    }
+
 }
