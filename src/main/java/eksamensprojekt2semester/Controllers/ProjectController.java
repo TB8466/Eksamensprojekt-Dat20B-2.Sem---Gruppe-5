@@ -28,7 +28,7 @@ public class ProjectController {
     }
 
    @GetMapping("/project/{id}")
-    public String getSpecificProject(@PathVariable("id") int id, Model model) throws SQLException {
+    public String projectDisplayer(@PathVariable("id") int id, Model model) throws SQLException {
         TaskManager taskManager = new TaskManager();
         SubtaskManager subtaskManager = new SubtaskManager();
 

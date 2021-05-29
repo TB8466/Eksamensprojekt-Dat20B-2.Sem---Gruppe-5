@@ -40,7 +40,7 @@ public class SubtaskManager {
 
     public ArrayList<Subtask> getAllSubtasks(int id) throws SQLException {
         Connection connection = DBManager.getConnection();
-        String query = "SELECT subtask_name, connected_task FROM subtasks JOIN tasks ON subtasks.connected_task = tasks.task_id WHERE tasks.connected_project = ?";
+        String query = "SELECT subtask_name, estimated_time, connected_task FROM subtasks JOIN tasks ON subtasks.connected_task = tasks.task_id WHERE tasks.connected_project = ?";
         PreparedStatement ps = connection.prepareStatement(query);
 
         ps.setInt(1, id);
@@ -48,7 +48,7 @@ public class SubtaskManager {
 
         ArrayList<Subtask> subtaskList = new ArrayList<>();
         while (rs.next()) {
-            Subtask subtask = new Subtask(rs.getString("subtask_name"), rs.getInt("connected_task"));
+            Subtask subtask = new Subtask(rs.getString("subtask_name"), rs.getDouble("estimated_time"), rs.getInt("connected_task"));
             subtaskList.add(subtask);
         }
         return subtaskList;

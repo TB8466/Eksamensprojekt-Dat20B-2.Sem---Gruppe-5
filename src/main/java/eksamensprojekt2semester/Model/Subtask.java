@@ -21,8 +21,9 @@ public class Subtask {
         this.estimatedTime = estimatedTime;
     }
 
-    public Subtask(String name, int connectedTask) {
+    public Subtask(String name, double estimatedTime, int connectedTask) {
         this.name = name;
+        this.estimatedTime=estimatedTime;
         this.connectedTask = connectedTask;
     }
 

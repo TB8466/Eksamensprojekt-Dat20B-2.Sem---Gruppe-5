@@ -12,11 +12,16 @@
            <thead>
                 <tr class="tr">
                     <th class="th" th:text="${list2.name}"></th>
+                    <th class="th">Est time</th>
                 </tr>
            </thead>
 
-           <tbody>
-               <td class="td" th:each="list : ${subtaskList}" th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list.name}"></td>
+           <tbody th:each="list : ${subtaskList}">
+               <tr>
+                   <th class="td"  th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list.name}"></th>
+                   <td class="td"  th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list.estimatedTime}"></td>
+               </tr>
+
            </tbody>
 
     </table>
