@@ -40,7 +40,19 @@ public class ProjectManager {
         }
         //Return the list, so it can be transferred to view
         return projectList;
+    }
 
+    public String getSpecificProject(int id) throws SQLException {
+        String name;
+        Connection connection = DBManager.getConnection();
+        String query = "SELECT project_name from projects WHERE project_id=?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1,id);
+
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        name = rs.getString(1);
+        return name;
     }
 
     public double estimatedTime(int id) throws SQLException {

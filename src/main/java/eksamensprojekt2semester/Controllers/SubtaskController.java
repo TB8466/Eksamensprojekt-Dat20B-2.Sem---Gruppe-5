@@ -12,7 +12,7 @@ import org.springframework.web.context.request.WebRequest;
 import java.sql.SQLException;
 @Controller
 public class SubtaskController {
-SubtaskManager subtaskManager = new SubtaskManager();
+    private SubtaskManager subtaskManager = new SubtaskManager();
 
 
     //displayer subtask

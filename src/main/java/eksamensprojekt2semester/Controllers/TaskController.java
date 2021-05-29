@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 @Controller
 public class TaskController {
-    TaskManager taskManager = new TaskManager();
+    private TaskManager taskManager = new TaskManager();
 
     //displayer task
     @GetMapping("/create-task/{id}")
