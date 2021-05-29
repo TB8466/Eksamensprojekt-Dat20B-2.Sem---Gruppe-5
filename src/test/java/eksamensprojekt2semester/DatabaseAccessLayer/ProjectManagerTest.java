@@ -39,5 +39,6 @@ class ProjectManagerTest {
 
         assertEquals("Project1",name);
         assertEquals("Project1desc",desc);
+
     }
 }

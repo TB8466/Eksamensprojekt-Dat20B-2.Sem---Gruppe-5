@@ -1,5 +1,5 @@
 /* Home related styling*/
-h1{
+.homeh1{
     color: mintcream;
     font-family: SansSerif;
     text-align: center;
@@ -65,6 +65,18 @@ body{
     margin-top: 15px;
 }
 
+
+/* Create task related styling*/
+.taskcontainer{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    width: 500px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
 /* Grid related styling*/
 .grid-container {
     display: inline-grid;
@@ -72,15 +84,37 @@ body{
     background-color: white;
     padding: 1px;
 }
+.button{
+    display: block;
+    color: black;
+    background-color: #dedede;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
 
 .grid-item {
-    background-color: #59869d;
+    background-color: mintcream;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
 }
-
+.buttoncontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/*
+.button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 20px;
+}
+*/
 
 /* Table related styling*/
 .table{

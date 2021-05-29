@@ -7,16 +7,16 @@
 <body>
 
     <div class="flexcontainer2">
-        <h1>Welcome to the AlphaTools WebApp!</h1>
-        <h1>Create a new project, or view an existing one</h1>
+        <h1 class="homeh1">Welcome to the AlphaTools WebApp!</h1>
+        <h1 class="homeh1">Create a new project, or view an existing one</h1>
 
         <div class="flexcontainer" >
 
-            <form name="getProjects" action="/getProjects"  method="get" style="margin: 10px">
+            <form name="getProjects" action="/getProjects"  method="get">
                 <input class="form" type="submit" value="VIEW EXISTING PROJECTS">
             </form>
 
-            <form name="createProjects" action="/projectCreator"  method="post" style="margin: 10px">
+            <form name="createProjects" action="/projectCreator"  method="post">
               <input class="form" type="submit"  value="CREATE NEW PROJECT">
             </form>
         </div>

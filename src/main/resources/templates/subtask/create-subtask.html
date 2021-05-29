@@ -32,6 +32,8 @@
                 <ul th:text="${list.description}"></ul>
 
 
+
+
                 <div class="deletebtn">
                     <form name="deleteSubtask" action="/delete-subtask" method="post">
                         <input hidden name="id" th:value="${list.id}">
