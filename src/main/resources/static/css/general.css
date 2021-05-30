@@ -84,10 +84,30 @@ body{
     background-color: white;
     padding: 1px;
 }
-.button{
+/* DELETE, EDIT, VIEW Button */
+.edit-button button {
     display: block;
     color: black;
-    background-color: #dedede;
+    background-color: blue;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.view-button button {
+    display: block;
+    color: black;
+    background-color: green;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.deletebtn input[type=submit]{
+    color: black;
+    display: block;
+    background-color: red;
     padding: 8px 12px;
     text-decoration: none;
     font-weight: bold;
@@ -116,10 +136,28 @@ body{
 }
 */
 
-/* Table related styling*/
+
+/* Table related styling + tryk på view projects*/
+
+.display-project h2 {
+  text-align: center;
+  width: 100%;
+}
+.display-project h3 {
+    text-align: center;
+    width: 100%;
+}
+p {
+    text-align: center;
+    width: 100%;
+}
+
+
+
 .table{
     margin: auto;
     width: 50%;
+    text-align: center;
 }
 
 .th{

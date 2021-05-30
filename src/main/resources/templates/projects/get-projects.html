@@ -20,8 +20,8 @@
                     <ul th:text="${list.description}"></ul>
                     <div class="buttoncontainer">
 
-                        <a class="button" th:href="@{/project/{id}(id=${list.id})}">View</a>
-                        <a class="button" th:href="@{/create-task/{id}(id=${list.id})}">Edit</a>
+                        <a class="view-button" th:href="@{/project/{id}(id=${list.id})}"><button>View</button></a>
+                        <a class="edit-button" th:href="@{/create-task/{id}(id=${list.id})}"><button>Edit</button></a>
 
                         <div class="deletebtn">
                             <form name="deleteProject" action="/delete-project" method="post">
