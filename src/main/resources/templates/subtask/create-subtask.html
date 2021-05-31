@@ -6,15 +6,17 @@
 
 <body>
 
-    <div class="subtaskcontainer">
-
+    <div class="formflexcontainer">
+            <h1 class="inputsiteh1">Enter name and description</h1>
+            <h1 class="inputsiteh1">along with estimated time for this subtask</h1>
           <form name="addsubtask" action="/addsubtask" method ="POST" id="subtaskform">
             <input type="hidden" name="id" th:value="${id}">
-            <input type="text" name="subtaskname" placeholder="Name:" required>
-            <input type="number" min="0" step="0.5" name="estimatedTime" placeholder="Estimated time" required>
-            <input type="submit">
+            <input maxlength="30" class="inputform" type="text" name="subtaskname" placeholder="Name: (Max 30 characters)" required>
+            <input class="inputform" type="number" min="0" step="0.5" name="estimatedTime" placeholder="Estimated amount of workdays required to complete this subtask" required>
+            <textarea maxlength="100" class="inputform" name="subtaskdescription" form="subtaskform" placeholder="Description: (Max 100 characters)"></textarea>
+
+            <input class="button" type="submit">
           </form>
-          <textarea name="subtaskdescription" form="subtaskform" placeholder="Enter your description"></textarea>
     </div>
 
         <h4>Current subtasks: </h4>

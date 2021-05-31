@@ -6,13 +6,13 @@
 
 <body>
 
-    <div class="taskcontainer">
-        <h1>Enter the name and description for your task</h1>
+    <div class="formflexcontainer">
+        <h1 class="inputsiteh1">Enter the name and description for your task</h1>
         <form  name="addtask" action="/addtask" method ="POST" id="taskform">
-            <input class="taskform" type="hidden" name="id" th:value="${id}">
-            <input class=taskform type="text" name="taskname" placeholder="Name:" required>
-            <textarea class="taskform" name="taskdescription" form="taskform" placeholder="Enter your description"></textarea>
-            <input type="submit">
+            <input  type="hidden" name="id" th:value="${id}">
+            <input maxlength="30" class="inputform" type="text" name="taskname" placeholder="Name: (Max 30 characters)" required>
+            <textarea maxlength="100" class="inputform" name="taskdescription" form="taskform" placeholder="Description: (Max 100 characters)"></textarea>
+            <input class="button" type="submit">
         </form>
     </div>
 

@@ -1,5 +1,5 @@
-/* Home related styling*/
-.homeh1{
+
+.inputsiteh1{
     color: mintcream;
     font-family: SansSerif;
     text-align: center;
@@ -11,7 +11,7 @@ body{
     margin-right: 5%;
     margin-left: 5%;
 }
-
+/*Home related styling*/
 .flexcontainer{
     display: flex;
     background-color: #59869d;
@@ -36,9 +36,9 @@ body{
     font-weight: bold;
 }
 
-/* Create Project related styling */
+/*Form related styling */
 
-.projectcontainer{
+.formflexcontainer{
     display: flex;
     background-color: #59869d;
     height: 600px;
@@ -46,7 +46,7 @@ body{
     justify-content: space-around;
 }
 
-.projectform{
+.inputform{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -56,7 +56,7 @@ body{
     margin-bottom: 25px;
 }
 
-.butt{
+.button{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -65,22 +65,6 @@ body{
     margin-top: 15px;
 }
 
-
-/* Create task related styling*/
-.taskcontainer{
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 15px;
-    height: 500px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    background-color: #59869d;
-}
-.taskform{
-  color: red;
-}
 
 /* Grid related styling*/
 .grid-container {
@@ -131,15 +115,7 @@ body{
     flex-direction: row;
     justify-content: space-between;
 }
-/*
-.button{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px;
-    width: 20px;
-}
-*/
+
 
 
 /* Table related styling + tryk på view projects*/
@@ -156,7 +132,6 @@ p {
     text-align: center;
     width: 100%;
 }
-
 
 
 .table{
@@ -178,9 +153,9 @@ p {
 .tr {
     border: 1px solid black;
 }
-/* Fragment related styling*/
 
-/* Navbar related styling */
+
+/* Navbar fragment related styling */
 .flexbar{
     display: flex;
     justify-content: space-between;
@@ -199,7 +174,7 @@ p {
     cursor: pointer;
 }
 
-/* Footer related styling*/
+/* Footer fragment related styling*/
 .footer{
     height: 100px;
     margin-top: 30px;
