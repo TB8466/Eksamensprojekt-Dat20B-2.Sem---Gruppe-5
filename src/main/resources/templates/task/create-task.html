@@ -7,12 +7,13 @@
 <body>
 
     <div class="taskcontainer">
-        <form name="addtask" action="/addtask" method ="POST" id="taskform">
-            <input type="hidden" name="id" th:value="${id}">
-            <input type="text" name="taskname" placeholder="Name:" required>
+        <h1>Enter the name and description for your task</h1>
+        <form  name="addtask" action="/addtask" method ="POST" id="taskform">
+            <input class="taskform" type="hidden" name="id" th:value="${id}">
+            <input class=taskform type="text" name="taskname" placeholder="Name:" required>
+            <textarea class="taskform" name="taskdescription" form="taskform" placeholder="Enter your description"></textarea>
             <input type="submit">
         </form>
-        <textarea name="taskdescription" form="taskform" placeholder="Enter your description"></textarea>
     </div>
 
          <h4>Current tasks: </h4>
