@@ -9,6 +9,8 @@
     <div class="projectlist">
         <h1>Current Projects :</h1>
 
+        <div class="flexcontainer3">
+
         <div class="grid-container">
             <ul th:each="list : ${projectList}">
                 <div class="grid-item"> <ul></ul>
@@ -27,7 +29,7 @@
                             <form name="deleteProject" action="/delete-project" method="post">
                                 <input hidden name="id" th:value="${list.id}">
                                 <input type="hidden" name="projectid" th:value="${id}">
-                                <input type="submit" value="delete">
+                                <input type="submit" value="Delete">
                             </form>
                         </div>
                     </div>
@@ -35,6 +37,7 @@
             </ul>
         </div>
 
+    </div>
     </div>
 </body>
 
