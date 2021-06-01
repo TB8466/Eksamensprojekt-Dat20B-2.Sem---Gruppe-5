@@ -32,18 +32,22 @@ connected_task INT,
 FOREIGN KEY (connected_task) REFERENCES tasks(task_id)
 );
 
-#sletter denne Contraint i FK
-ALTER TABLE subtasks DROP CONSTRAINT subtasks_ibfk_1;
+#For "delete" functions:
 
-#Add ny ContraintFK
+#Delete subtasks Contraint in FK
 ALTER TABLE subtasks
-    ADD CONSTRAINT FK_tasks_subtasks_Cascade_Delete
-        foreign key (connected_task) references tasks(task_id) on delete cascade;
+DROP CONSTRAINT subtasks_ibfk_1;
 
-#sletter constraint igen. Tror den skal eksikveres først før vi kan ADD constraint:
-ALTER TABLE tasks DROP CONSTRAINT tasks_ibfk_1
+#Add new ContraintFK
+ALTER TABLE subtasks
+ADD CONSTRAINT FK_tasks_subtasks_Cascade_Delete
+foreign key (connected_task) references tasks(task_id) on delete cascade;
 
-#Add ny ConstraintFK
+#Delete tasks Constraint in FK
+ALTER TABLE tasks
+DROP CONSTRAINT tasks_ibfk_1;
+
+#Add new ConstraintFK
 ALTER TABLE tasks
 ADD CONSTRAINT FK_projects_tasks_Cascade_Delete
 foreign key (connected_project) references projects(project_id) on delete cascade;

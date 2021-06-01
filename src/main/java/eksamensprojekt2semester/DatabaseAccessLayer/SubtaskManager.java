@@ -54,7 +54,7 @@ public class SubtaskManager {
         return subtaskList;
     }
 
-    public void deleteSubTask(int id) throws SQLException {
+    public void deleteSubtask(int id) throws SQLException {
 
         Connection connection = DBManager.getConnection();
         String query = "DELETE FROM subtasks WHERE subtask_id = ?";

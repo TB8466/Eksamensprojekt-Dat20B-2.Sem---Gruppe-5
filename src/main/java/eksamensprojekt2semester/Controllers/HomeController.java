@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class HomeController {
 
     //Arrival page
+    //For more see templates/home.html
     @GetMapping("/")
     public String renderHome(){
         return "home";

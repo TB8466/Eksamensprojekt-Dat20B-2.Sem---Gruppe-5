@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProjectManagerTest {
 
     @BeforeEach //Do something Before Each Test
-    public void setup() throws SQLException {
+     void setup() throws SQLException {
         Connection connection = DBManager.getConnection();
         String query = "INSERT INTO projects (PROJECT_NAME, PROJECT_DESC) VALUES('Project1','Project1desc')"; //SQL query
         PreparedStatement preparedStatement = connection.prepareStatement(query); // Insert query into Ps

@@ -13,13 +13,11 @@
 
         <div class="grid-container">
             <ul th:each="list : ${projectList}">
-                <div class="grid-item"> <ul></ul>
-                    <ul th:text="${list.name}"></ul>
-                    <br>
-                   Est. Workdays
-                    <ul th:text="${list.estimatedTime}"></ul>
-                    <ul> Project Description: </ul>
+                <div class="grid-item">
+                    <h4 th:text="${list.name}"></h4>
                     <ul th:text="${list.description}"></ul>
+                    Est. Workdays
+                    <h4 th:text="${list.estimatedTime}"></h4>
                     <div class="buttoncontainer">
 
                         <a class="view-button" th:href="@{/project/{id}(id=${list.id})}"><button>View</button></a>

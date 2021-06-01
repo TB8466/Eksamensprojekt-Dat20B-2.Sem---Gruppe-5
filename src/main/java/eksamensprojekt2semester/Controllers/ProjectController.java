@@ -22,13 +22,16 @@ public class ProjectController {
     //View all projects
     @GetMapping("/getProjects")
     public String renderGetProjects(Model model) throws SQLException {
+        //ArrayList from ProjectManager is send to get-projects.html via Model
         model.addAttribute("projectList",projectManager.getProjects());
 
         return "/projects/get-projects";
     }
 
+    //View a specific project, with all connected tasks and subtasks
    @GetMapping("/project/{id}")
     public String projectDisplayer(@PathVariable("id") int id, Model model) throws SQLException {
+
         TaskManager taskManager = new TaskManager();
         SubtaskManager subtaskManager = new SubtaskManager();
 

@@ -38,9 +38,9 @@ public class SubtaskController {
     }
 
     @PostMapping("/delete-subtask")
-    public String deleteSubTask(WebRequest request,int id) throws SQLException {
+    public String deleteSubtask(WebRequest request, int id) throws SQLException {
         String subtaskID = request.getParameter("subtaskid");
-        subtaskManager.deleteSubTask(id);
+        subtaskManager.deleteSubtask(id);
 
         //skal laves om
 
