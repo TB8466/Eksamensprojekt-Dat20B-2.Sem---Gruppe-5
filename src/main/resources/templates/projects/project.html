@@ -11,12 +11,12 @@
         <h3 th:text="${time}"></h3></h2>
 </div>
 
-    <table class="table" th:each="list2 : ${taskList}">
+    <table class="table" th:each="list2, itemStat : ${taskList}">
 
            <thead>
-                <tr class="tr">
-                    <th class="th" th:text="${list2.name}"></th>
-                    <th class="th">Est time</th>
+                <tr class="tr" >
+                    <th class="th" th:text="${itemStat.count+' : '+list2.name}"></th>
+                    <th class="th2">Workdays</th>
                 </tr>
            </thead>
 

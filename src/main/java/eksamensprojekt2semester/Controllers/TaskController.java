@@ -38,11 +38,11 @@ public class TaskController {
     //Deletes a task and all connected subtasks
     @PostMapping("/delete-task")
     public String deleteTask(WebRequest request, int id) throws SQLException {
-        String taskID = request.getParameter("taskid");
+        String projectid = request.getParameter("projectid");
         taskManager.deleteTask(id);
 
 
-        return "redirect:/create-task/" + taskID;
+        return "redirect:/create-task/" + projectid;
     }
 
 }

@@ -32,7 +32,7 @@
                 <div class="deletebtn-subtask">
                     <form name="deleteSubtask" action="/delete-subtask" method="post">
                         <input hidden name="id" th:value="${list.id}">
-                        <input type="hidden" name="subtaskid" th:value="${id}">
+                        <input type="hidden" name="taskid" th:value="${id}">
                         <input type="submit" value="Delete">
                      </form>
                 </div>

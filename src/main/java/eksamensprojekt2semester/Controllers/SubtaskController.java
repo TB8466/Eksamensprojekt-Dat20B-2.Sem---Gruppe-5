@@ -40,9 +40,9 @@ public class SubtaskController {
     //Deletes a subtask
     @PostMapping("/delete-subtask")
     public String deleteSubtask(WebRequest request, int id) throws SQLException {
-        String subtaskID = request.getParameter("subtaskid");
+        String taskID = request.getParameter("taskid");
         subtaskManager.deleteSubtask(id);
 
-        return "redirect:/create-subtask/" + subtaskID;
+        return "redirect:/create-subtask/" + taskID;
     }
 }
