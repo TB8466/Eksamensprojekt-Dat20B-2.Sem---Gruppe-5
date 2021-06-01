@@ -10,13 +10,15 @@
         <h1 class="inputsiteh1">Enter the name and description for your task</h1>
         <form  name="addtask" action="/addtask" method ="POST" id="taskform">
             <input  type="hidden" name="id" th:value="${id}">
+            <h4 class="inputsiteh4">Name:</h4>
             <input maxlength="30" class="inputform" type="text" name="taskname" placeholder="Name: (Max 30 characters)" required>
+            <h4 class="inputsiteh4">Description:</h4>
             <textarea maxlength="100" class="inputform" name="taskdescription" form="taskform" placeholder="Description: (Max 100 characters)"></textarea>
-            <input class="button" type="submit">
+            <input class="button" type="submit" value="Create Task">
         </form>
     </div>
 
-         <h4>Current tasks: </h4>
+         <h1 class="Currenth1">Current tasks: </h1>
     <div class="grid-container-display">
         <div class ="grid-container">
         <ul th:each="list : ${taskList}">
