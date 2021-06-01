@@ -21,7 +21,7 @@ body{
     margin-right: 5%;
     margin-left: 5%;
 }
-/*Home related styling*/
+/*home related styling*/
 .flexcontainer{
     display: flex;
     background-color: #59869d;
@@ -36,11 +36,13 @@ body{
     height: 600px;
 
 }
+/*get-rpojects related styling*/
 .flexcontainer3{
     display: flex;
     background-color: #59869d;
     justify-content: center;
 }
+/*project related styling*/
 .flexcontainer4{
     background-color: #59869d;
     height: fit-content;
@@ -111,7 +113,7 @@ body{
 
 }
 /* DELETE, EDIT, VIEW Button */
-.edit-button button {
+.addtask-button button {
     display: block;
     color: black;
     background-color: mintcream;
@@ -184,13 +186,6 @@ body{
     justify-content: space-between;
 
 }
-
-.projectStyle{
-    margin: auto;
-}
-
-
-
 /* Table related styling + tryk på view projects*/
 
 .display-project h2 {
@@ -209,7 +204,6 @@ body{
     text-align: center;
     width: 100%;
 }
-
 
 .table{
     margin: auto;

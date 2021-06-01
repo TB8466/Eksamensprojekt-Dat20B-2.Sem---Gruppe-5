@@ -18,7 +18,7 @@
                         <p th:text="${list.estimatedTime}"></p>
                         <div class="buttoncontainer">
                             <a class="view-button" th:href="@{/project/{id}(id=${list.id})}"><button>View Project</button></a>
-                            <a class="edit-button" th:href="@{/create-task/{id}(id=${list.id})}"><button>Add Task</button></a>
+                            <a class="addtask-button" th:href="@{/create-task/{id}(id=${list.id})}"><button>Add Task</button></a>
                             <div class="deletebtn">
                                 <form name="deleteProject" action="/delete-project" method="post">
                                     <input hidden name="id" th:value="${list.id}">
