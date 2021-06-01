@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class TaskController {
     private TaskManager taskManager = new TaskManager();
 
-    //displayer task
+    //Displays tasks and the form for creation
     @GetMapping("/create-task/{id}")
     public String displayTaskForm(@PathVariable("id") int id, Model model) throws SQLException {
         model.addAttribute("id",id);
@@ -35,6 +35,7 @@ public class TaskController {
         return "redirect:/create-task/"+id;
     }
 
+    //Deletes a task and all connected subtasks
     @PostMapping("/delete-task")
     public String deleteTask(WebRequest request, int id) throws SQLException {
         String taskID = request.getParameter("taskid");

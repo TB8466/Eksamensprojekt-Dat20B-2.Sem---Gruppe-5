@@ -31,7 +31,7 @@ public class ProjectController {
     //View a specific project, with all connected tasks and subtasks
    @GetMapping("/project/{id}")
     public String projectDisplayer(@PathVariable("id") int id, Model model) throws SQLException {
-
+        //All "get"methods are needed for this page
         TaskManager taskManager = new TaskManager();
         SubtaskManager subtaskManager = new SubtaskManager();
 
@@ -59,6 +59,7 @@ public class ProjectController {
 
         return "home";
     }
+    //Deletes a project with all connected tasks and subtasks
     @PostMapping("/delete-project")
     public String deleteProject(int id) throws SQLException {
 

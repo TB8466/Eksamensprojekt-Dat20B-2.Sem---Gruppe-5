@@ -1,7 +1,6 @@
 package eksamensprojekt2semester.DatabaseAccessLayer;
 
 import eksamensprojekt2semester.Model.Project;
-import eksamensprojekt2semester.Model.Task;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,7 +25,6 @@ public class ProjectManager {
 
     //Receives data from mySQL and insert the data into an ArrayList
     public ArrayList<Project> getProjects() throws SQLException {
-        System.out.println("LOOK FOR THIS");
         Connection connection = DBManager.getConnection();
         String query = "SELECT * from projects";
         PreparedStatement ps = connection.prepareStatement(query);
@@ -41,7 +39,7 @@ public class ProjectManager {
         //Return the list, so it can be transferred to view
         return projectList;
     }
-
+    //Get the name of a specific project
     public String getSpecificProject(int id) throws SQLException {
         String name;
         Connection connection = DBManager.getConnection();
@@ -54,7 +52,7 @@ public class ProjectManager {
         name = rs.getString(1);
         return name;
     }
-
+    //Get the sum of estimated time of all subtasks connected to a project
     public double estimatedTime(int id) throws SQLException {
         double estimatedTime = 0;
 
@@ -70,6 +68,7 @@ public class ProjectManager {
 
         return estimatedTime;
     }
+    //Delete a project. Cascading delete takes care of all connected tasks and subtasks
     public void deleteProject(int id) throws SQLException {
         Connection connection = DBManager.getConnection();
         String query = "DELETE FROM projects WHERE project_id = ?";

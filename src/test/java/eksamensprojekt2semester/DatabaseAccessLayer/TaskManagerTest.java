@@ -13,12 +13,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TaskManagerTest {
 
+    //Tests that when a project is created and inserted into the database,
+    //that the data then can be received from the database and used as data in Java
+
+    //Resets the test
     @BeforeEach
     void reset() throws SQLException {
         ProjectManager projectManager = new ProjectManager();
         projectManager.deleteProject(1000);
     }
-
+    //Inserts a "dummy"-project
     @BeforeEach //Do something Before Each Test
      void setup() throws SQLException {
         Connection connection = DBManager.getConnection();
@@ -28,6 +32,7 @@ class TaskManagerTest {
         preparedStatement.executeUpdate();
     }
 
+    //Inserts a task into database
     @BeforeEach
     void createTask() throws SQLException {
         Connection connection = DBManager.getConnection();
@@ -37,6 +42,7 @@ class TaskManagerTest {
         preparedStatement.executeUpdate();
     }
 
+    //Receives task from database
     @Test
     void getTasks() throws SQLException {
         Connection connection = DBManager.getConnection();

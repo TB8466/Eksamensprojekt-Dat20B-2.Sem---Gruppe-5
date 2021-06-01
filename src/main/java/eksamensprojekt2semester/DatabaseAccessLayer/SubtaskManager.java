@@ -1,7 +1,6 @@
 package eksamensprojekt2semester.DatabaseAccessLayer;
 
 import eksamensprojekt2semester.Model.Subtask;
-import eksamensprojekt2semester.Model.Task;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SubtaskManager {
+    //Creates of a subtask and inserts it into mySQL
     public void createSubtask(Subtask subtask, int id) throws SQLException {
         Connection connection = DBManager.getConnection();
         String query = "INSERT INTO subtasks (subtask_NAME, subtask_DESC, estimated_time, connected_task ) VALUES(?,?,?,?)"; //SQL query
@@ -21,7 +21,8 @@ public class SubtaskManager {
         preparedStatement.setInt(4, id);
         preparedStatement.executeUpdate();
     }
-
+    //Receive data from subtasks table and inserts it into an ArrayList
+    //Used only for getting subtasks for one specific task
     public ArrayList<Subtask> getSubtasks(int id) throws SQLException {
         Connection connection = DBManager.getConnection();
         String query = "SELECT * FROM subtasks WHERE connected_task = ?";
@@ -37,7 +38,8 @@ public class SubtaskManager {
         }
         return subtaskList;
     }
-
+    //Receive data from subtasks table and inserts it into an ArrayList
+    //Used to get subtasks connected to the entire project
     public ArrayList<Subtask> getAllSubtasks(int id) throws SQLException {
         Connection connection = DBManager.getConnection();
         String query = "SELECT subtask_name, estimated_time, connected_task FROM subtasks JOIN tasks ON subtasks.connected_task = tasks.task_id WHERE tasks.connected_project = ?";
@@ -53,7 +55,7 @@ public class SubtaskManager {
         }
         return subtaskList;
     }
-
+    //Deletes a subtask
     public void deleteSubtask(int id) throws SQLException {
 
         Connection connection = DBManager.getConnection();
@@ -64,5 +66,4 @@ public class SubtaskManager {
 
         ps.executeUpdate();
     }
-
 }

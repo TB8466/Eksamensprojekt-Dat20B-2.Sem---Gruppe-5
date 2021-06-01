@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class TaskManager {
 
-    //Opretter en task i databasen
+    //Create a task and insert into mySQL
     public void createTask(Task task, int id) throws SQLException {
         Connection connection = DBManager.getConnection();
         String query = "INSERT INTO tasks (task_NAME, task_DESC, connected_project ) VALUES(?,?,?)"; //SQL query
@@ -21,7 +21,7 @@ public class TaskManager {
         preparedStatement.setInt(3, id);
         preparedStatement.executeUpdate();
     }
-
+    //Receive data from tasks table and inserts it into an ArrayList
     public ArrayList<Task> getTasks(int id) throws SQLException {
         Connection connection = DBManager.getConnection();
         String query = "SELECT * FROM tasks WHERE connected_project = ?";
@@ -35,6 +35,7 @@ public class TaskManager {
             Task task = new Task(rs.getInt("task_id"), rs.getString("task_name"), rs.getString("task_desc"), estimatedTime(rs.getInt("task_id")));
             taskList.add(task);
         }
+        //return the list to be used in view
         return taskList;
     }
 
@@ -56,7 +57,7 @@ public class TaskManager {
 
         return estimatedTime;
     }
-
+    //Deletes a task. Cascading delete takes care of all connected subtasks
     public void deleteTask(int id) throws SQLException {
         Connection connection = DBManager.getConnection();
         String query = "DELETE FROM tasks WHERE task_id = ?";

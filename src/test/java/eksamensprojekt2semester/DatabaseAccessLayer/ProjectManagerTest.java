@@ -12,7 +12,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProjectManagerTest {
 
-    @BeforeEach //Do something Before Each Test
+    //Tests that when a project is created and inserted into the database,
+    //that the data then can be received from the database and used as data in Java
+
+    //Insert into database
+    @BeforeEach
      void setup() throws SQLException {
         Connection connection = DBManager.getConnection();
         String query = "INSERT INTO projects (PROJECT_NAME, PROJECT_DESC) VALUES('Project1','Project1desc')"; //SQL query
@@ -21,6 +25,7 @@ class ProjectManagerTest {
         preparedStatement.executeUpdate();
     }
 
+    //Receive data from database
     @Test
     void createProject() throws SQLException {
         Connection connection = DBManager.getConnection();

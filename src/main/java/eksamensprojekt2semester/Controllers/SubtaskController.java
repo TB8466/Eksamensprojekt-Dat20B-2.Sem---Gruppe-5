@@ -15,7 +15,7 @@ public class SubtaskController {
     private SubtaskManager subtaskManager = new SubtaskManager();
 
 
-    //displayer subtask
+    //Displays subtasks and the form for creation
     @GetMapping("/create-subtask/{taskid}")
     public String renderSubtaskform(@PathVariable("taskid") int id, Model model) throws SQLException {
         model.addAttribute("id",id);
@@ -37,12 +37,11 @@ public class SubtaskController {
         return "redirect:/create-subtask/"+id;
     }
 
+    //Deletes a subtask
     @PostMapping("/delete-subtask")
     public String deleteSubtask(WebRequest request, int id) throws SQLException {
         String subtaskID = request.getParameter("subtaskid");
         subtaskManager.deleteSubtask(id);
-
-        //skal laves om
 
         return "redirect:/create-subtask/" + subtaskID;
     }
