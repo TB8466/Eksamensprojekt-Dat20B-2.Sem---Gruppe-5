@@ -26,6 +26,7 @@ body{
     display: flex;
     background-color: #59869d;
     justify-content: center;
+
 }
 
 .flexcontainer2{
@@ -33,6 +34,7 @@ body{
     background-color: #59869d;
     flex-direction: column;
     height: 600px;
+
 }
 .flexcontainer3{
     display: flex;
@@ -56,6 +58,7 @@ body{
     font-weight: bold;
     border-radius: 25px;
     background-color: mintcream;
+    cursor: pointer;
 
 }
 
@@ -87,7 +90,9 @@ body{
     padding: 15px;
     width: 150px;
     margin-top: 15px;
-    text-decoration: none;
+    border-radius: 25px;
+    text-decoration-line: underline;
+    cursor: pointer;
 }
 
 
@@ -99,7 +104,8 @@ body{
     padding: 1px;
     padding-right: 45px;
     border-radius: 25px;
-    justify-content: center;
+    margin: auto;
+
 }
 /* DELETE, EDIT, VIEW Button */
 .edit-button button {
@@ -107,7 +113,7 @@ body{
     color: black;
     background-color: mintcream;
     padding: 8px 12px;
-    text-decoration: none;
+
     font-weight: bold;
     cursor: pointer;
     border-radius: 25px;
@@ -118,7 +124,6 @@ body{
     color: black;
     background-color: mintcream;
     padding: 8px 12px;
-    text-decoration: none;
     font-weight: bold;
     cursor: pointer;
     border-radius: 25px;
@@ -130,7 +135,7 @@ body{
     display: block;
     background-color: mintcream;
     padding: 8px 12px;
-    text-decoration: none;
+
     font-weight: bold;
     text-underline-position: auto;
     cursor: pointer;
@@ -147,7 +152,7 @@ body{
     align-content: center;
     background-color: mintcream;
     padding: 8px 12px;
-    text-decoration: none;
+
     font-weight: bold;
     text-underline-position: auto;
     cursor: pointer;
@@ -266,6 +271,5 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    position: relative;
     top: 20px;
 }
