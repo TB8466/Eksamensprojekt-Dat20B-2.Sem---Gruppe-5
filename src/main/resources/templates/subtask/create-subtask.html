@@ -7,8 +7,7 @@
 <body>
 
     <div class="formflexcontainer">
-            <h1 class="inputsiteh1">Enter name and description</h1>
-            <h1 class="inputsiteh1">along with estimated time for this subtask</h1>
+            <h1 class="inputsiteh1">Enter name, description and estimated time</h1>
           <form name="addsubtask" action="/addsubtask" method ="POST" id="subtaskform">
             <input type="hidden" name="id" th:value="${id}">
             <input maxlength="30" class="inputform" type="text" name="subtaskname" placeholder="Name: (Max 30 characters)" required>
@@ -36,7 +35,7 @@
 
 
 
-                <div class="deletebtn">
+                <div class="deletebtn-subtask">
                     <form name="deleteSubtask" action="/delete-subtask" method="post">
                         <input hidden name="id" th:value="${list.id}">
                         <input type="hidden" name="subtaskid" th:value="${id}">

@@ -28,13 +28,13 @@
                 Task description:
                 <ul th:text="${list.description}"></ul>
                 <div class="buttoncontainer">
-                <a class="view-button" th:href="@{/create-subtask/{id}(id=${list.taskid})}"><button>Edit</button></a>
+                <a class="view-button" th:href="@{/create-subtask/{id}(id=${list.taskid})}"><button>Add Subtask</button></a>
 
                 <div class="deletebtn">
                     <form name="deleteTask" action="/delete-task" method="post">
                         <input hidden name="id" th:value="${list.taskid}">
                         <input type="hidden" name="taskid" th:value="${id}">
-                        <input type="submit" value="Delete">
+                        <input type="submit" value="Delete Task">
                     </form>
                 </div>
               </div>

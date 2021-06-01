@@ -15,19 +15,21 @@
             <ul th:each="list : ${projectList}">
                 <div class="grid-item">
                     <h4 th:text="${list.name}"></h4>
+                    Description:
                     <ul th:text="${list.description}"></ul>
-                    Est. Workdays
+                    <br>
+                    Est. Workdays:
                     <h4 th:text="${list.estimatedTime}"></h4>
                     <div class="buttoncontainer">
 
-                        <a class="view-button" th:href="@{/project/{id}(id=${list.id})}"><button>View</button></a>
-                        <a class="edit-button" th:href="@{/create-task/{id}(id=${list.id})}"><button>Edit</button></a>
+                        <a class="view-button" th:href="@{/project/{id}(id=${list.id})}"><button>View Project</button></a>
+                        <a class="edit-button" th:href="@{/create-task/{id}(id=${list.id})}"><button>Add Task</button></a>
 
                         <div class="deletebtn">
                             <form name="deleteProject" action="/delete-project" method="post">
                                 <input hidden name="id" th:value="${list.id}">
                                 <input type="hidden" name="projectid" th:value="${id}">
-                                <input type="submit" value="Delete">
+                                <input type="submit" value="Delete Project">
                             </form>
                         </div>
                     </div>

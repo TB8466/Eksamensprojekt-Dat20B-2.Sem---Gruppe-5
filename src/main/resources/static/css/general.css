@@ -122,8 +122,26 @@ body{
     border-radius: 25px;
     text-decoration-line: underline;
 
-
 }
+
+.deletebtn-subtask [type=submit] {
+    color: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    background-color: mintcream;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    text-underline-position: auto;
+    cursor: pointer;
+    border-radius: 25px;
+    text-decoration-line: underline;
+}
+
+
+
 
 .grid-item {
     background-color: #dedede;
