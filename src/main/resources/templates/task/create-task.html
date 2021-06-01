@@ -5,9 +5,8 @@
 <header th:replace="navfragment :: navbar"></header>
 
 <body>
-
     <div class="formflexcontainer">
-        <h1 class="inputsiteh1">Enter the name and description for your task</h1>
+        <h1 class="inputsiteh1">Enter Name and Description for your task</h1>
         <form  name="addtask" action="/addtask" method ="POST" id="taskform">
             <input  type="hidden" name="id" th:value="${id}">
             <h4 class="inputsiteh4">Name:</h4>
@@ -17,34 +16,30 @@
             <input class="button" type="submit" value="Create Task">
         </form>
     </div>
-
-         <h1 class="Currenth1">Current tasks: </h1>
-    <div class="grid-container-display">
-        <div class ="grid-container">
-        <ul th:each="list : ${taskList}">
-            <div class="grid-item">
-                <h4 th:text ="${list.name}"></h4>
-                <h4>Estimated Workdays:</h4>
-                <p th:text="${list.estimatedTime}"></p>
-                <h4>Task description:</h4>
-                <p th:text="${list.description}"></p>
-                <div class="buttoncontainer">
-                <a class="view-button" th:href="@{/create-subtask/{id}(id=${list.taskid})}"><button>Add Subtask</button></a>
-
-                <div class="deletebtn">
-                    <form name="deleteTask" action="/delete-task" method="post">
-                        <input hidden name="id" th:value="${list.taskid}">
-                        <input type="hidden" name="projectid" th:value="${id}">
-                        <input type="submit" value="Delete Task">
-                    </form>
-                </div>
-              </div>
+    <h1 class="Currenth1">Current tasks: </h1>
+        <div class="grid-container-display">
+            <div class ="grid-container">
+                <ul th:each="list : ${taskList}">
+                    <div class="grid-item">
+                        <h4 th:text ="${list.name}"></h4>
+                        <h4>Estimated Workdays:</h4>
+                        <p th:text="${list.estimatedTime}"></p>
+                        <h4>Task description:</h4>
+                        <p th:text="${list.description}"></p>
+                        <div class="buttoncontainer">
+                            <a class="view-button" th:href="@{/create-subtask/{id}(id=${list.taskid})}"><button>Add Subtask</button></a>
+                                <div class="deletebtn">
+                                    <form name="deleteTask" action="/delete-task" method="post">
+                                        <input hidden name="id" th:value="${list.taskid}">
+                                        <input type="hidden" name="projectid" th:value="${id}">
+                                        <input type="submit" value="Delete Task">
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
+                </ul>
             </div>
-        </ul>
-    </div>
-    </div>
-
+        </div>
 </body>
-
 <footer th:replace="footerfragment :: footer"></footer>
 </html>

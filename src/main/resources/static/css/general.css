@@ -71,6 +71,9 @@ body{
     flex-direction: column;
     justify-content: space-around;
 }
+.formflexcontainer h4{
+    color: mintcream;
+}
 
 .inputform{
     display: block;

@@ -6,33 +6,26 @@
 
 <body>
 <div class="flexcontainer4">
-<div class="display-project">
-    <h2>PROJEKT: <h2 th:text="${ProjectName}">ProjectID</h2>
+    <div class="display-project">
+        <h2>PROJEKT: <h2 th:text="${ProjectName}">ProjectID</h2>
         <p>Amount of workdays:<p>
         <h3 th:text="${time}"></h3></h2>
-</div>
-
+    </div>
     <table class="table" th:each="list2, itemStat : ${taskList}">
-
            <thead>
                 <tr class="tr" >
                     <th class="th" th:text="${itemStat.count+' : '+list2.name}"></th>
                     <th class="th2">Workdays</th>
                 </tr>
            </thead>
-
-           <tbody th:each="list : ${subtaskList}">
-               <tr>
-                   <th class="td"  th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list.name}"></th>
-                   <td class="td"  th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list.estimatedTime}"></td>
+        <tbody th:each="list : ${subtaskList}">
+            <tr>
+                <th class="td"  th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list.name}"></th>
+                <td class="td"  th:if="${list2.taskid} == ${list.connectedTask}" th:text="${list.estimatedTime}"></td>
                </tr>
-
-           </tbody>
-
+        </tbody>
     </table>
 </div>
-<div class="random"></div>
 </body>
-
 <footer th:replace="footerfragment :: footer"></footer>
 </html>
