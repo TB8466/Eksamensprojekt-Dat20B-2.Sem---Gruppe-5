@@ -7,7 +7,7 @@
 <body>
 
     <div class="formflexcontainer">
-            <h1 class="inputsiteh1">Enter name, description and estimated time</h1>
+            <h1 class="inputsiteh1">Enter Name, Description and Estimated Workdays</h1>
           <form name="addsubtask" action="/addsubtask" method ="POST" id="subtaskform">
             <input type="hidden" name="id" th:value="${id}">
             <input maxlength="30" class="inputform" type="text" name="subtaskname" placeholder="Name: (Max 30 characters)" required>
@@ -19,21 +19,15 @@
     </div>
 
         <h4>Current subtasks: </h4>
-
-    <div class ="grid-container">
-
+    <div class="grid-container-display">
+        <div class ="grid-container">
         <ul th:each="list : ${subtaskList}">
-
             <div class="grid-item">
-                <ul th:text ="${list.name}"></ul>
-                <br>
-                Estimated Time:
-                <ul th:text="${list.estimatedTime}"></ul>
-                Subtask description:
-                <ul th:text="${list.description}"></ul>
-
-
-
+                <h4 th:text ="${list.name}"></h4>
+                <h4>Estimated Workdays:</h4>
+                <p th:text="${list.estimatedTime}"></p>
+                <h4>Subtask description:</h4>
+                <p th:text="${list.description}"></p>
 
                 <div class="deletebtn-subtask">
                     <form name="deleteSubtask" action="/delete-subtask" method="post">
@@ -44,7 +38,7 @@
                 </div>
             </div>
         </ul>
-
+        </div>
     </div>
 </body>
 

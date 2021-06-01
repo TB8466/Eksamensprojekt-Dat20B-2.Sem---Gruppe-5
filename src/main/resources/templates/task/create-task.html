@@ -17,16 +17,15 @@
     </div>
 
          <h4>Current tasks: </h4>
-
-    <div class ="grid-container">
+    <div class="grid-container-display">
+        <div class ="grid-container">
         <ul th:each="list : ${taskList}">
             <div class="grid-item">
-                <ul th:text ="${list.name}"></ul>
-                <br>
-                Estimated Time:
-                <ul th:text="${list.estimatedTime}"></ul>
-                Task description:
-                <ul th:text="${list.description}"></ul>
+                <h4 th:text ="${list.name}"></h4>
+                <h4>Estimated Workdays:</h4>
+                <p th:text="${list.estimatedTime}"></p>
+                <h4>Task description:</h4>
+                <p th:text="${list.description}"></p>
                 <div class="buttoncontainer">
                 <a class="view-button" th:href="@{/create-subtask/{id}(id=${list.taskid})}"><button>Add Subtask</button></a>
 
@@ -40,6 +39,7 @@
               </div>
             </div>
         </ul>
+    </div>
     </div>
 
 </body>

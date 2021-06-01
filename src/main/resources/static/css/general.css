@@ -140,7 +140,10 @@ body{
     text-decoration-line: underline;
 }
 
-
+.grid-container-display {
+    display: flex;
+    justify-content: center;
+}
 
 
 .grid-item {
